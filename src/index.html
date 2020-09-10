@@ -3,11 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Weather APP</title>
   </head>
+  <body class="weather">
+    <main>
+    <include src="./template/input.html"></include>
 
-  <body>
-   
+    <ul class="main__bookmarks"></ul>
+    <include src="./template/todayTemperature.html"></include>
+    <include src="./template/fiveDayTemplate.html"></include>
+    <include src="./template/coments.html"></include>
+    <div class="data"></div>
+  </main>
+    <script src="./index.js"></script>
   </body>
 </html>
