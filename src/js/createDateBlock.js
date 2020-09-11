@@ -1,15 +1,15 @@
 import refs from './refs.js';
 export default function dateBlock(city) {
-    const date = new Date(city.dt*1000).getDate();
+    const date = ('0' + new Date(city.dt*1000).getUTCDate()).slice(-2);
     const day = new Date(city.dt*1000).toLocaleString('en', {weekday: 'short'});
     const month = new Date(city.dt*1000).toLocaleString('en', {month: 'long'});
-    const hours = new Date(city.dt*1000).getHours();
-    const minutes = new Date(city.dt*1000).getMinutes();
-    const seconds = new Date(city.dt*1000).getSeconds();
-    const sunriseHours = new Date(city.sys.sunrise).getHours();
-    const sunriseMinutes = new Date(city.sys.sunrise).getMinutes();
-    const sunsetHours = new Date(city.sys.sunset).getHours();
-    const sunsetMinutes = new Date(city.sys.sunset).getMinutes(); 
+    const hours = ('0' + new Date(city.dt*1000).getUTCHours()).slice(-2);
+    const minutes = ('0' + new Date(city.dt*1000).getUTCMinutes()).slice(-2);
+    const seconds = ('0' + new Date(city.dt*1000).getUTCSeconds()).slice(-2);
+    const sunriseHours = ('0' + new Date(city.sys.sunrise).getUTCHours()).slice(-2);
+    const sunriseMinutes = ('0' + new Date(city.sys.sunrise).getUTCMinutes()).slice(-2);
+    const sunsetHours = ('0' + new Date(city.sys.sunset).getUTCHours()).slice(-2);
+    const sunsetMinutes = ('0' + new Date(city.sys.sunset).getUTCMinutes()).slice(-2); 
     refs.dataBlockRef.innerHTML = `<p class="data__day">${date}th ${day}</p>
     <div class="data__wrapper">
         <div class="data__day--month">
