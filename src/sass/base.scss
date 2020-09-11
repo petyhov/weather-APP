@@ -10,6 +10,11 @@ html {
 }
 body {
   font-family: $main-font;
+  width: 100%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
 }
 
 img {

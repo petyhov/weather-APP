@@ -54,6 +54,6 @@ export function defaultCity() {
   
     console.log(backImg.getImage(searchValue).then(image =>{
       const randomImage = image[Math.floor(Math.random() * image.length)].largeImageURL;
-      console.log(refs.weatherBlock.style.backgroundImage = `url(${randomImage})`);
-      }));
+    return randomImage;  
+    }));
     }
