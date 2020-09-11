@@ -22,3 +22,14 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.container {
+  margin: 0 auto;
+  width: 280px;
+  @include tablet-media {
+    width: 608px;
+  }
+  @include desktop-media {
+    width: 1060px;
+  }
+}

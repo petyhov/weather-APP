@@ -1,7 +1,6 @@
 import './sass/main.scss';
-import './js/commentSection';
+// import './js/commentSection.js';
 import './js/input.js';
-
 
 import {defaultCity} from './js/defaultCity.js';
 import {handleInput} from './js/input.js';
@@ -18,4 +17,3 @@ navigator.geolocation.getCurrentPosition(onSuccess, defaultCity)
 
 defaultCity();
 handleInput();
-

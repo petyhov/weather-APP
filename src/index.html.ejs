@@ -7,11 +7,11 @@
   </head>
   <body class="weather">
     <main>
-      <section>${require("./template/input.html")}</section>
-      <section>${require("./template/todayTemperature.html")}</section>
-      <section>${require("./template/fiveDayTemplate.html")}</section>
-      <section>${require("./template/coments.html")}</section>
-      <div class="data"></div>
+      <div class="container">
+        ${require("./html/input.html")}
+        ${require("./html/todayTemperature.html")}
+        <!-- <div class="data"></div> -->
+      </div>
     </main>
     <script src="./index.js"></script>
   </body>

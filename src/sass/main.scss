@@ -8,11 +8,11 @@
 @import 'helpers/variables.scss';
 @import 'helpers/mixins.scss';
 // @import 'comments.scss';
-@import 'inputSection.scss';
-@import 'oneDaySection.scss';
 @import 'fiveDaySection.scss';
 @import 'normalize.scss';
 @import 'base.scss';
 //COMPONENTS
+@import 'components/inputSection.scss';
 @import 'components/comments.scss';
 @import 'components/data.scss';
+@import 'components/oneDaySection.scss';
