@@ -1,0 +1,127 @@
+.one-day-section * {
+  margin: 0;
+  padding: 0;
+}
+.one-day-section {
+  margin: 0 auto;
+  margin-bottom: 32px;
+  &__container {
+    margin: 0 auto;
+    @include tablet-media {
+      width: 490px;
+    }
+    @include desktop-media {
+      margin-right: -111px;
+    }
+  }
+  &__table {
+    box-shadow: 0 8px 43px rgba(16, 33, 54, 0.59);
+    padding: 24px 0 38px;
+    background-color: #102136;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #797e86;
+    font-family: 'lato';
+    margin-bottom: 32px;
+    @include tablet-media {
+      margin-bottom: 47px;
+      padding-top: 0;
+      padding-bottom: 40px;
+    }
+    @include desktop-media {
+      margin-bottom: 28px;
+    }
+  }
+
+  &__h2 {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    @include tablet-media {
+      margin-bottom: 19px;
+      font-size: 18px;
+    }
+  }
+  &__wrap-temperature {
+    width: 158px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include tablet-media {
+      flex-direction: column;
+    }
+  }
+  &__curent-temperature {
+    font-family: 'latoLight';
+    font-size: 45px;
+    line-height: 1.2;
+    color: #ffffff;
+    @include tablet-media {
+      font-size: 90px;
+      margin-bottom: 21px;
+    }
+  }
+  &__min-max-container {
+    font-size: 18px;
+    width: 78px;
+    display: flex;
+    justify-content: space-between;
+    @include tablet-media {
+      width: 100%;
+    }
+    p {
+      font-size: 14px;
+      @include tablet-media {
+        font-size: 18px;
+      }
+      span {
+        font-size: 18px;
+      }
+    }
+    .white {
+      color: #ffffff;
+    }
+  }
+  .btn-wrap {
+    display: flex;
+    justify-content: space-between;
+    @include tablet-media {
+      justify-content: center;
+    }
+    &__todayBtn,
+    &__5dayBtn {
+      font-family: 'latoBold';
+      width: 126px;
+      height: 29px;
+      border-radius: 15px;
+      background-color: #f7f7f7;
+      border: none;
+    }
+    &__todayBtn {
+      @include tablet-media {
+        margin-right: 16px;
+      }
+    }
+  }
+  @include tablet-media {
+    margin-bottom: 47px;
+  }
+  @include desktop-media {
+    margin-right: 0px;
+    margin-bottom: 57px;
+  }
+}
+.min-max-container {
+  &__temperature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+  }
+}
+.border {
+  width: 1px;
+  background-color: #28384a;
+}
