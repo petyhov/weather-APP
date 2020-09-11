@@ -65,14 +65,14 @@ refs.inputRef.addEventListener('submit', e => {
   );
 });
 
-// document.getElementById('star').addEventListener('click', () => {
-//   const searchValue = refs.inputRef.search.value;
-//   if (searchValue) {
-//     updateBookmarks(searchValue);
-//   }
-// });
+document.getElementById('star').addEventListener('click', () => {
+  const searchValue = refs.inputRef.search.value;
+  if (searchValue) {
+    updateBookmarks(searchValue);
+  }
+});
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   downloadBookmarks();
-// });
+document.addEventListener('DOMContentLoaded', () => {
+  downloadBookmarks();
+});
 }

@@ -14,7 +14,7 @@ const onSuccess = position =>{
    return getByGeolocation(lat, lon);
 }
 
-navigator.geolocation.getCurrentPosition(onSuccess, defaultCity())
+navigator.geolocation.getCurrentPosition(onSuccess, defaultCity)
 
 defaultCity();
 handleInput();
