@@ -1,32 +1,26 @@
-import refs from './refs.js';
-import './fetchWeatherData.js';
 import forecastData from './fetchWeatherData.js';
-import dateBlock from './createDateBlock.js';
-import { groupByDate } from './groupByDateFunction.js';
+import refs from './refs.js';
 import oneDayTemplate from './oneDayTemplate';
+import { groupByDate } from './groupByDateFunction.js';
+import dateBlock from './createDateBlock.js';
 import backImg from './backgroundImage.js';
-import { bookmarks, downloadBookmarks, updateBookmarks } from './bookmarks';
-import { cityValidationAddBookmark } from './cityValidation.js';
-import getCarusel from './slick.js';
 
-export function handleInput() {
-  refs.inputRef.addEventListener('submit', e => {
-    e.preventDefault();
-    const searchValue = e.currentTarget.elements.search.value;
-    //Блок з датою, світанком та заходом сонця
-
+export function defaultCity() {
+  //Блок з датою, світанком та заходом сонця
+    const searchValue = 'london';
     oneDayTemplate(searchValue);
     forecastData.getForecast(searchValue).then(city => {
+      forecastData.request = searchValue;
       dateBlock(city);
     });
-
+  
     // Блок з прогнозом погоди на 5 днів
-
+  
     forecastData.getForecastFiveDays(searchValue).then(forecast => {
       const arrData = forecast.list;
       const newArr = groupByDate(arrData);
       newArr.length = 5;
-
+  
       newArr.map(el => {
         let value;
         for (value of el) {
@@ -54,9 +48,10 @@ export function handleInput() {
         };
       });
     });
-
+  
+  
     // Додавання рандомної картинки на бекграунд
-
+  
     console.log(
       backImg.getImage(searchValue).then(image => {
         const randomImage =
@@ -65,15 +60,5 @@ export function handleInput() {
           (refs.weatherBlock.style.backgroundImage = `url(${randomImage})`),
         );
       }),
-    );
-  });
-
-  refs.bookmarkBtnRef.addEventListener('click', () => {
-    const searchValue = refs.inputRef.search.value;
-    cityValidationAddBookmark(searchValue);
-  });
-
-  document.addEventListener('DOMContentLoaded', () => {
-    downloadBookmarks();
-  });
-}
+    );;
+    }
