@@ -1,13 +1,12 @@
 import refs from './refs.js';
 import './fetchWeatherData.js';
 import forecastData from './fetchWeatherData.js';
-import forecastForFiveDays from './fetchWeatherDataWeek.js';
 import dateBlock from './createDateBlock.js';
 import { groupByDate } from './groupByDateFunction.js';
 import oneDayTemplate from './oneDayTemplate';
 import backImg from './backgroundImage.js';
 import { bookmarks, downloadBookmarks, updateBookmarks } from './bookmarks';
-
+export function handleInput(){
 refs.inputRef.addEventListener('submit', e => {
   e.preventDefault();
   const searchValue = e.currentTarget.elements.search.value;
@@ -77,3 +76,4 @@ document.getElementById('star').addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
   downloadBookmarks();
 });
+}

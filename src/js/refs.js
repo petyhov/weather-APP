@@ -11,4 +11,5 @@ export default {
   todayMinTemperature: document.getElementById('todayMinTemperature'),
   todayMaxTemperature: document.getElementById('todayMaxTemperature'),
   weatherBlock: document.querySelector('.weather'),
+  commentTextContent: document.querySelector('.comments__content'),
 };
