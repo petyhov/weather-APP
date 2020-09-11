@@ -14,13 +14,12 @@ refs.inputRef.addEventListener('submit', e => {
 
   oneDayTemplate(searchValue);
   forecastData.getForecast(searchValue).then(city => {
-    forecastData.request = searchValue;
     dateBlock(city);
   });
 
   // Блок з прогнозом погоди на 5 днів
 
-  forecastForFiveDays.getForecastFiveDays(searchValue).then(forecast => {
+  forecastData.getForecastFiveDays(searchValue).then(forecast => {
     const arrData = forecast.list;
     const newArr = groupByDate(arrData);
     newArr.length = 5;
@@ -66,14 +65,14 @@ refs.inputRef.addEventListener('submit', e => {
   );
 });
 
-document.getElementById('star').addEventListener('click', () => {
-  const searchValue = refs.inputRef.search.value;
-  if (searchValue) {
-    updateBookmarks(searchValue);
-  }
-});
+// document.getElementById('star').addEventListener('click', () => {
+//   const searchValue = refs.inputRef.search.value;
+//   if (searchValue) {
+//     updateBookmarks(searchValue);
+//   }
+// });
 
-document.addEventListener('DOMContentLoaded', () => {
-  downloadBookmarks();
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//   downloadBookmarks();
+// });
 }
