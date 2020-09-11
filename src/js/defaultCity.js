@@ -10,7 +10,6 @@ export function defaultCity() {
     const searchValue = 'london';
     oneDayTemplate(searchValue);
     forecastData.getForecast(searchValue).then(city => {
-      forecastData.request = searchValue;
       dateBlock(city);
     });
   
@@ -51,14 +50,10 @@ export function defaultCity() {
   
   
     // Додавання рандомної картинки на бекграунд
-  
-    console.log(
+
       backImg.getImage(searchValue).then(image => {
         const randomImage =
           image[Math.floor(Math.random() * image.length)].largeImageURL;
-        console.log(
-          (refs.weatherBlock.style.backgroundImage = `url(${randomImage})`),
-        );
-      }),
-    );;
+         return refs.weatherBlock.style.backgroundImage = `url(${randomImage})`;
+      })
     }
