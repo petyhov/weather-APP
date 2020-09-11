@@ -5,18 +5,17 @@ import { groupByDate } from './groupByDateFunction.js';
 import dateBlock from './createDateBlock.js';
 import backImg from './backgroundImage.js';
 
-export function defaultCity() {
+export function getByGeolocation(lat, lon) {
   //Блок з датою, світанком та заходом сонця
-    const searchValue = 'london';
-    oneDayTemplate(searchValue);
-    forecastData.getForecast(searchValue).then(city => {
-      forecastData.request = searchValue;
+
+    oneDayTemplate();
+    forecastData.getForecastByCurrentPosition(lat, lon).then(city => {
       dateBlock(city);
     });
   
     // Блок з прогнозом погоди на 5 днів
   
-    forecastData.getForecastFiveDays(searchValue).then(forecast => {
+    forecastData.getForecastFiveDaysByCurrentPosition(lat, lon).then(forecast => {
       const arrData = forecast.list;
       const newArr = groupByDate(arrData);
       newArr.length = 5;
@@ -53,7 +52,7 @@ export function defaultCity() {
     // Додавання рандомної картинки на бекграунд
   
     console.log(
-      backImg.getImage(searchValue).then(image => {
+      backImg.getImage().then(image => {
         const randomImage =
           image[Math.floor(Math.random() * image.length)].largeImageURL;
         console.log(

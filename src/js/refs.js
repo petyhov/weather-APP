@@ -1,6 +1,6 @@
 export default {
   inputRef: document.querySelector('.main__form'),
-  bookmarkRef: document.querySelector('.main__bookmarks'),
+  bookmarkRef: document.querySelector('.bookmarks__list'),
   bookmarkBtnRef: document.querySelector('.main__bookmarkBtn'),
   dataBlockRef: document.querySelector('.data'),
   fiveDaysRef: document.querySelector('.five__days'),
@@ -10,5 +10,6 @@ export default {
   todayTemperature: document.getElementById('todayTemperature'),
   todayMinTemperature: document.getElementById('todayMinTemperature'),
   todayMaxTemperature: document.getElementById('todayMaxTemperature'),
-  weatherBlock: document.querySelector('.background-image'),
+  weatherBlock: document.querySelector('.weather'),
+  commentTextContent: document.querySelector('.comments__content'),
 };
