@@ -67,12 +67,14 @@ refs.inputRef.addEventListener('submit', e => {
   );
 });
 
-document.getElementById('star').addEventListener('click', () => {
+refs.bookmarkBtnRef.addEventListener('click', () => {
   const searchValue = refs.inputRef.search.value;
   if (searchValue) {
     updateBookmarks(searchValue);
   }
 });
+
+console.log(refs.inputRef.search.value);
 
 document.addEventListener('DOMContentLoaded', () => {
   downloadBookmarks();

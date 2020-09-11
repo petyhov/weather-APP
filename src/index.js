@@ -1,4 +1,3 @@
 import './sass/main.scss';
-import './js/commentSection';
+// import './js/commentSection.js';
 import './js/input.js';
-

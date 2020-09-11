@@ -1,7 +1,7 @@
 export default {
-  inputRef: document.querySelector('.main__form'),
+  inputRef: document.querySelector('.input-section__form'),
   bookmarkRef: document.querySelector('.bookmarks__list'),
-  bookmarkBtnRef: document.querySelector('.main__bookmarkBtn'),
+  bookmarkBtnRef: document.querySelector('.input-section__bookmarkBtn'),
   dataBlockRef: document.querySelector('.data'),
   fiveDaysRef: document.querySelector('.five__days'),
   oneDaySection: document.querySelector('.one-day-section'),
