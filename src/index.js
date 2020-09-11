@@ -7,14 +7,19 @@ import {defaultCity} from './js/defaultCity.js';
 import {handleInput} from './js/input.js';
 import {getByGeolocation} from './js/geolocationFunc.js';
 
-
-const onSuccess = position =>{
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude;
-   return getByGeolocation(lat, lon);
+function getGeolocation(){
+    return new Promise((getByGeolocation, defaultCity)=>{
+        navigator.geolocation.getCurrentPosition(getByGeolocation,defaultCity);
+    })
 }
 
-navigator.geolocation.getCurrentPosition(onSuccess, defaultCity)
+getGeolocation().then(location=>{
+    const lat = location.coords.latitude;
+    const lon = location.coords.longitude;
+    getByGeolocation({lat, lon});
+}).catch(error=>{
+    console.log(error);
+});
 
 defaultCity();
 handleInput();
