@@ -7,6 +7,8 @@ import { groupByDate } from './groupByDateFunction.js';
 import oneDayTemplate from './oneDayTemplate';
 import backImg from './backgroundImage.js';
 import { bookmarks, downloadBookmarks, updateBookmarks } from './bookmarks';
+import { cityValidationAddBookmark } from './cityValidation.js';
+import getCarusel from './slick.js';
 
 refs.inputRef.addEventListener('submit', e => {
   e.preventDefault();
@@ -69,12 +71,8 @@ refs.inputRef.addEventListener('submit', e => {
 
 refs.bookmarkBtnRef.addEventListener('click', () => {
   const searchValue = refs.inputRef.search.value;
-  if (searchValue) {
-    updateBookmarks(searchValue);
-  }
+  cityValidationAddBookmark(searchValue);
 });
-
-console.log(refs.inputRef.search.value);
 
 document.addEventListener('DOMContentLoaded', () => {
   downloadBookmarks();
