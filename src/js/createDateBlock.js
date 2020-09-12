@@ -1,31 +1,24 @@
 import refs from './refs.js';
-
-export default function dateBlock(city) {  
-    const date = ('0' + new Date(city.dt*1000).getUTCDate()).slice(-2);
-    const day = new Date(city.dt*1000).toLocaleString('en', {weekday: 'short'});
-    const month = new Date(city.dt*1000).toLocaleString('en', {month: 'long'});
-    const hours = ('0' + new Date(city.dt*1000).getUTCHours()).slice(-2);
-    const minutes = ('0' + new Date(city.dt*1000).getUTCMinutes()).slice(-2);
-    const seconds = ('0' + new Date(city.dt*1000).getUTCSeconds()).slice(-2);
-    const sunriseHours = ('0' + new Date(city.sys.sunrise*1000).getUTCHours()).slice(-2);
-    const sunriseMinutes = ('0' + new Date(city.sys.sunrise*1000).getUTCMinutes()).slice(-2);
-    const sunsetHours = ('0' + new Date(city.sys.sunset*1000).getUTCHours()).slice(-2);
-    const sunsetMinutes = ('0' + new Date(city.sys.sunset*1000).getUTCMinutes()).slice(-2);
-    refs.dataBlockRef.innerHTML = `<p class="data__day">${date}<sup>th</sup> ${day}</p>
-    <div class="data__wrapper">
-      <div class="data__day--month">
-        <span class="month">${month}</span>
-        <span class="time">${hours}:${minutes}:${seconds}</span>
-      </div>
-      <div class="data__sun">
-        <div class="sunrise">
-          <img src="${require("./../images/sunrise.png")}" alt="sunrise" class="sunrise__icon" />
-          <span class="sunrise__time">${sunriseHours}:${sunriseMinutes}</span>
-        </div>
-        <div class="sunset">
-          <img src="${require("./../images/sunset.png")}" alt="sunset" class="sunset__icon" />
-          <span class="sunset__time">${sunsetHours}:${sunsetMinutes}</span>
-        </div>
-      </div>
-    </div>`;
+let blockTimer;
+function dateBlock(city) {
+  clearInterval(blockTimer);
+   blockTimer = setInterval(() => {
+    const date = new Date();
+    const localUTCTime = date.getTime() + +date.getTimezoneOffset() * 60000;
+    const timeDifference = localUTCTime + city.timezone * 1000;
+    const momentTime = new Date(timeDifference);
+    const getSunriseTime = new Date(city.sys.sunrise*1000).getTime() + +new Date(city.sys.sunrise*1000).getTimezoneOffset()*60000 + +city.timezone *1000;
+    const currentSunrise = new Date (getSunriseTime);
+    const getSunsetTime = new Date(city.sys.sunset*1000).getTime() + +new Date(city.sys.sunset*1000).getTimezoneOffset()*60000 + +city.timezone *1000;
+    const currentSunset = new Date(getSunsetTime);
+    refs.currentDateRef.innerHTML = momentTime.getDate() +'<sup>th</sup>' + momentTime.toLocaleString('en', { weekday: 'short' });
+    refs.monthRef.innerHTML = momentTime.toLocaleString('en', {month: 'long',});
+    refs.currentTimeRef.innerHTML = pad(momentTime.getHours()) +':'+pad(momentTime.getMinutes()) + ':'+pad(momentTime.getSeconds());
+    refs.sunriseRef.innerHTML = pad(currentSunrise.getHours())+':' + pad(currentSunrise.getMinutes());
+    refs.sunsetRef.innerHTML = pad(currentSunset.getHours())+':' + pad(currentSunset.getMinutes());pad(currentSunset.getMinutes());
+  }, 1000);
+  function pad(value) {
+    return String(value).padStart(2, '0');
+  }
 }
+export default dateBlock;

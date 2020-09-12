@@ -26,14 +26,26 @@
 
   &__content {
     font-size: 14px;
+    margin-bottom: 20px;
     font-family: 'latoItalic';
     color: $main-color;
     text-align: right;
     animation: anim 9s infinite reverse;
     animation-iteration-count: infinite;
+
     @include tablet-media {
       font-size: 22px;
     }
+  }
+
+  
+  &__author {
+    font-size: 14px;
+    font-family: 'latoItalic';
+    color: $main-color;
+    text-align: right;
+    animation: anim 9s infinite reverse;
+    animation-iteration-count: infinite;
   }
 }
 
