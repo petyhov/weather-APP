@@ -52,12 +52,6 @@ export function getByGeolocation({lat, lon}) {
   
   
     // Додавання рандомної картинки на бекграунд
-  
-    console.log(
-      backImg.getImage().then(image => {
-        const randomImage = image[Math.floor(Math.random() * image.length)].largeImageURL;
-          refs.weatherBlock.style.backgroundImage = `url(https://www.myvin.com.ua/uploads/article/img_large/9636/52e1557de4d39a15d92a2ef33a9cd545.jpeg)`;
-        
-      }));
-};
+    refs.weatherBlock.style.backgroundImage = `url(https://www.myvin.com.ua/uploads/article/img_large/9636/52e1557de4d39a15d92a2ef33a9cd545.jpeg)`;
+  };
     

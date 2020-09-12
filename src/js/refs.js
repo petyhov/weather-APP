@@ -18,4 +18,5 @@ export default {
   currentDateRef: document.getElementById('currentDate'),
   sunriseRef: document.getElementById('sunrise'),
   sunsetRef: document.getElementById('sunset'),
+  preloaderRef: document.getElementById('preload-img'),
 };
