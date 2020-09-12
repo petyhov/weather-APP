@@ -10,11 +10,6 @@ html {
 }
 body {
   font-family: $main-font;
-  width: 100%;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 100vh;
 }
 
 img {
@@ -34,6 +29,9 @@ img {
   }
 }
 
+.background-image {
+  width: 100%;
+}
 .weather__byGeo{
   width: 100%;
   background-image: url(https://www.myvin.com.ua/uploads/article/img_large/9636/52e1557de4d39a15d92a2ef33a9cd545.jpeg);
@@ -41,4 +39,6 @@ img {
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
+  overflow-y: auto;
+  position: relative;
 }
