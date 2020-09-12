@@ -15,7 +15,7 @@ function dateBlock(city) {
     refs.monthRef.innerHTML = momentTime.toLocaleString('en', {month: 'long',});
     refs.currentTimeRef.innerHTML = pad(momentTime.getHours()) +':'+pad(momentTime.getMinutes()) + ':'+pad(momentTime.getSeconds());
     refs.sunriseRef.innerHTML = pad(currentSunrise.getHours())+':' + pad(currentSunrise.getMinutes());
-    refs.sunsetRef.innerHTML = pad(currentSunset.getHours())+':' + pad(currentSunset.getMinutes());pad(currentSunset.getMinutes());
+    refs.sunsetRef.innerHTML = pad(currentSunset.getHours())+':' + pad(currentSunset.getMinutes());
   }, 1000);
   function pad(value) {
     return String(value).padStart(2, '0');
