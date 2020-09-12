@@ -1,12 +1,19 @@
-export default [
-  'There is no bad weather in nature',
-  'In terrible weather, in cold rain and snow - coffee and cat become more pleasant.',
-  'Some people walk in the rain, others get wet',
-  'We have any laziness an universal explanation: The weather is changing! The pressure is jumping!',
-  'The weather leaves much to be desired Black or Mediterranean…',
-  'Any weather is good if you have a good mood to share it with somebody.',
-  'The cause of cold weather is global warming.',
-  'And about the weather. It is time to build the ark',
-  'There is no bad weather, there is a bad mood.',
-  'There are two types of weather: just the weather and hell knows what is this?).',
-];
+export default[
+  {
+    quote: 'Just for the record, the weather today is calm and sunny, but the air is full of bullshit.',
+    author: 'Chuck Palahniuk',
+  },
+  {
+    quote: 'The sun did not shine. It was too wet to play. So we sat in the house. All that cold, cold, wet day.',
+    author: 'Dr. Seuss',
+  }, {
+    quote: 'After three days men grow weary, of a wench, a guest, and weather rainy.',
+    author: 'Benjamin Franklin',
+  }, {
+    quote: 'Gonna be a real frog-strangling turd-floater.',
+    author: 'Charles Martin',
+  }, {
+    quote: 'Weather here in this part of the world is just as moody, just as subjective and disloyal, as people.',
+    author: 'Jackie Kay',
+  },
+]
