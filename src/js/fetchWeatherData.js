@@ -19,7 +19,7 @@ export default {
       .catch(err => err)
   },
 
-  getForecastByCurrentPosition(lat, lon) {
+  getForecastByCurrentPosition({lat, lon}) {
     const baseUrl = 'http://api.openweathermap.org/data/2.5/weather';
     const params = `?lat=${lat}&lon=${lon}&units=metric&appid=${this.keyApi}`;
     return fetch(baseUrl + params)
@@ -28,7 +28,7 @@ export default {
       .catch(err => err)
   },
 
-  getForecastFiveDaysByCurrentPosition(lat, lon) {
+  getForecastFiveDaysByCurrentPosition({lat, lon}) {
     const baseUrl = 'http://api.openweathermap.org/data/2.5/forecast';
     const params = `?lat=${lat}&lon=${lon}&units=metric&appid=${this.keyApi}`;
     return fetch(baseUrl + params)

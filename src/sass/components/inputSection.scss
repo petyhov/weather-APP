@@ -1,0 +1,73 @@
+body {
+  background-color: gray;
+}
+.input-section * {
+  margin: 0;
+  padding: 0;
+}
+.input-section {
+  padding-top: 28px;
+  margin-bottom: 49px;
+  @include tablet-media {
+    padding-top: 62px;
+    margin-bottom: 104px;
+  }
+  @include desktop-media {
+    padding-top: 79px;
+    margin-bottom: 94px;
+  }
+  &__form {
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 13px;
+    @include tablet-media {
+      width: 506px;
+    }
+
+    #location-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      left: 24px;
+    }
+    input {
+      width: 100%;
+      height: 50px;
+      border-radius: 25px;
+      border: none;
+      padding-left: 60px;
+      font-size: 14px;
+      font-family: 'LatoRegular';
+      @include tablet-media {
+        margin: 0 auto;
+        font-size: 18px;
+      }
+    }
+  }
+  &__bookmarkBtn {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 22px;
+    cursor: pointer;
+  }
+}
+.bookmarks {
+  &__list {
+    list-style: none;
+    display: flex;
+    height: 27px;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #102136;
+    opacity: 0.47;
+    color: #ffffff;
+    padding: 0 12px;
+  }
+}

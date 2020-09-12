@@ -5,17 +5,16 @@ import { groupByDate } from './groupByDateFunction.js';
 import dateBlock from './createDateBlock.js';
 import backImg from './backgroundImage.js';
 
-export function getByGeolocation(lat, lon) {
+export function getByGeolocation({lat, lon}) {
   //Блок з датою, світанком та заходом сонця
-
     oneDayTemplate();
-    forecastData.getForecastByCurrentPosition(lat, lon).then(city => {
+    forecastData.getForecastByCurrentPosition({lat, lon}).then(city => {
       dateBlock(city);
     });
   
     // Блок з прогнозом погоди на 5 днів
   
-    forecastData.getForecastFiveDaysByCurrentPosition(lat, lon).then(forecast => {
+    forecastData.getForecastFiveDaysByCurrentPosition({lat, lon}).then(forecast => {
       const arrData = forecast.list;
       const newArr = groupByDate(arrData);
       newArr.length = 5;
