@@ -12,6 +12,7 @@ export default {
   todayMaxTemperature: document.getElementById('todayMaxTemperature'),
   weatherBlock: document.querySelector('.weather'),
   commentTextContent: document.querySelector('.comments__content'),
+  commentTextAuthor: document.querySelector('.comments__author'),
   monthRef: document.getElementById('currentMonth'),
   currentTimeRef: document.getElementById('timer'),
   currentDateRef: document.getElementById('currentDate'),

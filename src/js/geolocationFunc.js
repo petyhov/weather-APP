@@ -55,11 +55,9 @@ export function getByGeolocation({lat, lon}) {
   
     console.log(
       backImg.getImage().then(image => {
-        const randomImage =
-          image[Math.floor(Math.random() * image.length)].largeImageURL;
-        console.log(
-          (refs.weatherBlock.style.backgroundImage = `url:https://www.myvin.com.ua/uploads/article/img_large/9636/52e1557de4d39a15d92a2ef33a9cd545.jpeg`),
-        );
-      }),
-    );
-    }
+        const randomImage = image[Math.floor(Math.random() * image.length)].largeImageURL;
+          refs.weatherBlock.style.backgroundImage = `url(https://www.myvin.com.ua/uploads/article/img_large/9636/52e1557de4d39a15d92a2ef33a9cd545.jpeg)`;
+        
+      }));
+};
+    
