@@ -8,13 +8,13 @@ import backImg from './backgroundImage.js';
 import { bookmarks, downloadBookmarks, updateBookmarks } from './bookmarks';
 import { cityValidationAddBookmark } from './cityValidation.js';
 import getCarusel from './slick.js';
+import templateOneDay from '../handlebars/oneDayOfFiveDay.hbs';
 
 export function handleInput() {
   refs.inputRef.addEventListener('submit', e => {
     e.preventDefault();
     const searchValue = e.currentTarget.elements.search.value;
     //Блок з датою, світанком та заходом сонця
-
     oneDayTemplate(searchValue);
     forecastData.getForecast(searchValue).then(city => {
       dateBlock(city);
@@ -26,7 +26,7 @@ export function handleInput() {
       const arrData = forecast.list;
       const newArr = groupByDate(arrData);
       newArr.length = 5;
-
+      let arrWithWeather = [];
       newArr.map(el => {
         let value;
         for (value of el) {
@@ -37,6 +37,9 @@ export function handleInput() {
             weekday: 'long',
           }),
           date: new Date(value.dt * 1000).getDate(),
+          month: new Date(value.dt * 1000).toLocaleString('en', {
+            month: 'short',
+          }),
           weather: value.weather[0].icon,
           minTemperature: value.main.temp_min,
           maxTemperature: value.main.temp_max,
@@ -52,7 +55,12 @@ export function handleInput() {
             },
           ],
         };
+        arrWithWeather.push(dateOfFiveDays);
       });
+      document.querySelector('.five-day-section__list').innerHTML = '';
+      document
+        .querySelector('.five-day-section__list')
+        .insertAdjacentHTML('beforeend', templateOneDay(arrWithWeather));
     });
 
     // Додавання рандомної картинки на бекграунд
