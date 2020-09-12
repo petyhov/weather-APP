@@ -10,11 +10,6 @@ html {
 }
 body {
   font-family: $main-font;
-  width: 100%;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 100vh;
 }
 
 img {
@@ -32,4 +27,13 @@ img {
   @include desktop-media {
     width: 1060px;
   }
+}
+.background-image {
+  width: 100%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  overflow-y: auto;
+  position: relative;
 }

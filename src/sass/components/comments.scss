@@ -1,12 +1,18 @@
 .comments {
   width: 205px;
   position: relative;
-  background-color: rgba(16, 33, 54, 0.8);
+  margin-left: auto;
   padding: 10px;
   border-radius: 20px;
   height: 150px;
   @include tablet-media {
     width: 373px;
+    margin-right: 52px;
+  }
+
+  @include desktop-media {
+    margin-top: 216px;
+    margin-right: 0;
   }
 
   &::after {

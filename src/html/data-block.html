@@ -1,19 +1,27 @@
-<div class="data"><p class="data__day" id="currentDate"></p>
-<div class="data__wrapper">
-  <div class="data__day--month">
-    <span class="month" id="currentMonth"></span>
-    <span class="time" id="timer"></span>
-  </div>
-  <div class="data__sun">
-    <div class="sunrise">
-      <img src="./../images/sunrise.png" alt="sunrise" class="sunrise__icon" />
-      <span class="sunrise__time" id="sunrise">${sunriseHours}:${sunriseMinutes}</span>
+<section class="data">
+  <p class="data__day" id="currentDate"></p>
+  <div class="data__wrapper">
+    <div class="data__day--month">
+      <span class="month" id="currentMonth"></span>
+      <span class="time" id="timer"></span>
     </div>
-    <div class="sunset">
-      <img src="./../images/sunset.png" alt="sunset" class="sunset__icon" />
-      <span class="sunset__time" id="sunset">${sunsetHours}:${sunsetMinutes}</span>
+    <div class="data__sun">
+      <div class="sunrise">
+        <img
+          src="./../images/sunrise.png"
+          alt="sunrise"
+          class="sunrise__icon"
+        />
+        <span class="sunrise__time" id="sunrise"
+          >${sunriseHours}:${sunriseMinutes}</span
+        >
+      </div>
+      <div class="sunset">
+        <img src="./../images/sunset.png" alt="sunset" class="sunset__icon" />
+        <span class="sunset__time" id="sunset"
+          >${sunsetHours}:${sunsetMinutes}</span
+        >
+      </div>
     </div>
   </div>
-</div>
-</div>
-
+</section>

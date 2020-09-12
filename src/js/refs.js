@@ -10,7 +10,7 @@ export default {
   todayTemperature: document.getElementById('todayTemperature'),
   todayMinTemperature: document.getElementById('todayMinTemperature'),
   todayMaxTemperature: document.getElementById('todayMaxTemperature'),
-  weatherBlock: document.querySelector('.weather'),
+  weatherBlock: document.querySelector('.background-image'),
   commentTextContent: document.querySelector('.comments__content'),
   monthRef: document.getElementById('currentMonth'),
   currentTimeRef: document.getElementById('timer'),

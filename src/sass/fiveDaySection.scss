@@ -4,12 +4,19 @@
 }
 .five-day-section {
   .container {
-    width: 1060px;
+    width: 280px;
     margin: 0 auto;
     padding-top: 36px;
     background-color: rgba(15, 29, 48, 0.8);
     border-radius: 35px;
     font-size: 18px;
+
+    @include tablet-media {
+      width: 608px;
+    }
+    @include desktop-media {
+      width: 1060px;
+    }
   }
   &__list {
     list-style: none;

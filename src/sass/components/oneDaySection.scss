@@ -11,7 +11,8 @@
       width: 490px;
     }
     @include desktop-media {
-      margin-right: -111px;
+      position: absolute;
+      right: 0;
     }
   }
   &__table {
@@ -32,6 +33,9 @@
     }
     @include desktop-media {
       margin-bottom: 28px;
+      border-radius: 0;
+      border-top-left-radius: 35px;
+      border-bottom-left-radius: 35px;
     }
   }
 
