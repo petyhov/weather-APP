@@ -17,6 +17,7 @@ getGeolocation().then(location=>{
     const lat = location.coords.latitude;
     const lon = location.coords.longitude;
     getByGeolocation({lat, lon});
+    document.body.classList.add('.weather__byGeo');
 }).catch(error=>{
     console.log(error);
 });

@@ -17,24 +17,11 @@ function dateBlock(city) {
       new Date(city.sys.sunset * 1000).getTimezoneOffset() * 60000 +
       city.timezone * 1000;
     const currentSunset = new Date(getSunsetTime);
-    refs.currentDateRef.innerHTML =
-      momentTime.getDay() +
-      '<sup>th</sup>' +
-      momentTime.toLocaleString('en', { weekday: 'short' });
-    refs.monthRef.innerHTML = momentTime.toLocaleString('en', {
-      month: 'long',
-    });
-    refs.currentTimeRef.innerHTML =
-      pad(momentTime.getHours()) +
-      ':' +
-      pad(momentTime.getMinutes()) +
-      ':' +
-      pad(momentTime.getSeconds());
-    refs.sunriseRef.innerHTML =
-      pad(currentSunrise.getHours()) + ':' + pad(currentSunrise.getMinutes());
-    refs.sunsetRef.innerHTML =
-      pad(currentSunset.getHours()) + ':' + pad(currentSunset.getMinutes());
-    pad(currentSunset.getMinutes());
+    refs.currentDateRef.innerHTML = momentTime.getDate() +'<sup>th</sup>' + momentTime.toLocaleString('en', { weekday: 'short' });
+    refs.monthRef.innerHTML = momentTime.toLocaleString('en', {month: 'long',});
+    refs.currentTimeRef.innerHTML = pad(momentTime.getHours()) +':'+pad(momentTime.getMinutes()) + ':'+pad(momentTime.getSeconds());
+    refs.sunriseRef.innerHTML = pad(currentSunrise.getHours())+':' + pad(currentSunrise.getMinutes());
+    refs.sunsetRef.innerHTML = pad(currentSunset.getHours())+':' + pad(currentSunset.getMinutes());
   }, 1000);
   function pad(value) {
     return String(value).padStart(2, '0');
