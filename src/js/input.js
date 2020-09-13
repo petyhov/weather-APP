@@ -13,7 +13,6 @@ import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 import templateOneDay from '../handlebars/oneDayOfFiveDay.hbs';
 
-
 export function handleInput() {
   refs.inputRef.addEventListener('submit', e => {
     e.preventDefault();
@@ -91,5 +90,10 @@ export function handleInput() {
 
   document.addEventListener('DOMContentLoaded', () => {
     downloadBookmarks();
+    refs.bookmarkRef.addEventListener('click', e => {
+      if (Object.values(e.target.classList).includes('bookmarkcCloseBtn')) {
+        e.target.parentElement.remove();
+      }
+    });
   });
 }
