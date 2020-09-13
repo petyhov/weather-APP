@@ -39,7 +39,6 @@
     }
   }
 
-  
   &__author {
     font-size: 14px;
     font-family: 'latoItalic';
@@ -47,6 +46,10 @@
     text-align: right;
     animation: anim 9s infinite reverse;
     animation-iteration-count: infinite;
+
+    @include tablet-media {
+      font-size: 18px;
+    }
   }
 }
 
