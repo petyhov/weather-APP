@@ -16,12 +16,11 @@ export function getByGeolocation({lat, lon}) {
     });
   
     // Блок з прогнозом погоди на 5 днів
-  
+  let arrWithWeather = [];
     forecastData.getForecastFiveDaysByCurrentPosition({lat, lon}).then(forecast => {
       const arrData = forecast.list;
       const newArr = groupByDate(arrData);
       newArr.length = 5;
-      let arrWithWeather = [];
       newArr.map(el => {
         let value;
         for (value of el) {
