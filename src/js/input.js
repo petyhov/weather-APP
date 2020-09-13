@@ -19,7 +19,6 @@ export function handleInput() {
     e.preventDefault();
 
     const searchValue = e.currentTarget.elements.search.value;
-
     //Блок з датою, світанком та заходом сонця
     oneDayTemplate(searchValue);
     forecastData.getForecast(searchValue).then(city => {
