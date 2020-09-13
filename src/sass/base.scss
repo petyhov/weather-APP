@@ -10,11 +10,6 @@ html {
 }
 body {
   font-family: $main-font;
-  width: 100%;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 100vh;
 }
 
 img {
@@ -34,11 +29,31 @@ img {
   }
 }
 
-.weather__byGeo{
+.background-image {
   width: 100%;
   background-image: url(https://www.myvin.com.ua/uploads/article/img_large/9636/52e1557de4d39a15d92a2ef33a9cd545.jpeg);
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
+  position: relative;
 }
+
+.visually-hidden:not(:focus):not(:active),
+input[type='checkbox'].visually-hidden,
+input[type='radio'].visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+

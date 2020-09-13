@@ -1,26 +1,27 @@
 .comments {
-  width: 205px;
-  position: relative;
-  background-color: rgba(16, 33, 54, 0.8);
-  padding: 10px;
-  border-radius: 20px;
-  height: 150px;
-  @include tablet-media {
-    width: 373px;
-  }
+  &__box {
+    width: 205px;
+    position: relative;
+    margin-left: auto;
+    padding: 10px;
+    border-radius: 20px;
+    height: 150px;
+    background-image: url(../images/quotes.png);
+    background-repeat: no-repeat;
+    background-position: 95% 2%;
+    background-size: 22px;
 
-  &::after {
-    content: '\201D';
-    font-family: 'Arial';
-    font-size: 90px;
-    color: $second-color;
-    text-transform: uppercase;
-    position: absolute;
-    top: -5px;
-    right: 0px;
     @include tablet-media {
-      font-size: 195px;
-      top: -30px;
+      width: 373px;
+      margin-right: 52px;
+      padding-top: 30px;
+      background-size: 50px;
+      background-position: 95% 5%;
+    }
+
+    @include desktop-media {
+      margin-top: 196px;
+      margin-right: 0;
     }
   }
 
