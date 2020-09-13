@@ -1,4 +1,6 @@
 import refs from './refs';
+import {getCarusel} from './slick.js';
+
 
 export let bookmarks = [];
 
@@ -12,6 +14,7 @@ export const downloadBookmarks = () => {
     const bookmarksTemplate = bookmarks
       .map(bookmark => exampleTemplate(bookmark))
       .map(item => refs.bookmarkRef.insertAdjacentHTML('beforeend', item));
+      getCarusel();
   }
 };
 

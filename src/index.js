@@ -13,7 +13,7 @@ function preloader() {
 
   setTimeout(() => {
     refs.preloaderRef.classList.remove('preload-container');
-  }, 4000);
+  }, 2000);
 }
 document.addEventListener('DOMcontentLoaded', preloader());
 
@@ -22,8 +22,7 @@ function getGeolocation() {
     navigator.geolocation.getCurrentPosition(getByGeolocation, defaultCity);
   });
 }
-defaultCity();
-handleInput();
+
 getGeolocation()
   .then(location => {
     const lat = location.coords.latitude;
@@ -35,4 +34,5 @@ getGeolocation()
     console.log(error);
   });
 
-
+defaultCity();
+handleInput();
