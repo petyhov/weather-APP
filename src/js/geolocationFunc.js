@@ -9,7 +9,7 @@ export function getByGeolocation({lat, lon}) {
     forecastData.getForecastByCurrentPosition({lat, lon}).then(city => {
       dateBlock(city);
       refs.locationWeather.src = `http://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`;
-      refs.locationName.textContent = city.name;
+      refs.locationName.textContent = `${city.name}, ${city.sys.country}`;
       refs.todayTemperature.textContent = Math.round(city.main.temp);
       refs.todayMinTemperature.textContent = Math.round(city.main.temp_min);
       refs.todayMaxTemperature.textContent = Math.round(city.main.temp_max);
