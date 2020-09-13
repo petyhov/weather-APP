@@ -8,6 +8,9 @@ import backImg from './backgroundImage.js';
 import { bookmarks, downloadBookmarks, updateBookmarks } from './bookmarks';
 import { cityValidationAddBookmark } from './cityValidation.js';
 import getCarusel from './slick.js';
+import { error } from '@pnotify/core/dist/PNotify.js';
+import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/core/dist/BrightTheme.css';
 
 export function handleInput() {
   refs.inputRef.addEventListener('submit', e => {
@@ -17,7 +20,11 @@ export function handleInput() {
 
     oneDayTemplate(searchValue);
     forecastData.getForecast(searchValue).then(city => {
-      dateBlock(city);
+      if (city['cod'] === '404' || !searchValue) {
+        error({ title: 'NOTICE!', text: "Can't show such city!" });
+      } else {
+        dateBlock(city);
+      }
     });
 
     // Блок з прогнозом погоди на 5 днів
