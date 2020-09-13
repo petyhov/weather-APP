@@ -1,9 +1,10 @@
-const arrWithDayData = [];
+let arrWithDayData;
 let dayArr = 0;
 let index = -1;
 let temporaryTemp = 0;
 
 const getObj = data => {
+  arrWithDayData = [];
   let inputArr = data.list;
   for (let day in inputArr) {
     const thisDay = inputArr[day];
