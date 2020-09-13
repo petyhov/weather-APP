@@ -12,10 +12,12 @@ import { error } from '@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 import templateOneDay from '../handlebars/oneDayOfFiveDay.hbs';
+import getObj from './create5dayObj';
 
 export function handleInput() {
   refs.inputRef.addEventListener('submit', e => {
     e.preventDefault();
+
     const searchValue = e.currentTarget.elements.search.value;
     //Блок з датою, світанком та заходом сонця
     oneDayTemplate(searchValue);
@@ -30,44 +32,12 @@ export function handleInput() {
     // Блок з прогнозом погоди на 5 днів
 
     forecastData.getForecastFiveDays(searchValue).then(forecast => {
-      const arrData = forecast.list;
-      const newArr = groupByDate(arrData);
-      newArr.length = 5;
-      let arrWithWeather = [];
-      newArr.map(el => {
-        let value;
-        for (value of el) {
-          Object.values(...newArr[0])[1];
-        }
-        const dateOfFiveDays = {
-          day: new Date(value.dt * 1000).toLocaleString('en', {
-            weekday: 'long',
-          }),
-          date: new Date(value.dt * 1000).getDate(),
-          month: new Date(value.dt * 1000).toLocaleString('en', {
-            month: 'short',
-          }),
-          weather: value.weather[0].icon,
-          minTemperature: value.main.temp_min,
-          maxTemperature: value.main.temp_max,
-          forecast: [
-            {
-              time:
-                new Date(value.dt * 1000).getUTCHours() +
-                new Date(value.dt * 1000).getUTCMinutes(),
-              weather: value.weather[0].icon,
-              pressure: value.main.pressure,
-              humidity: value.main.humidity,
-              wind: value.wind.speed,
-            },
-          ],
-        };
-        arrWithWeather.push(dateOfFiveDays);
-      });
+      const objWithWeather = getObj(forecast);
+      console.log(objWithWeather);
       document.querySelector('.five-day-section__list').innerHTML = '';
       document
         .querySelector('.five-day-section__list')
-        .insertAdjacentHTML('beforeend', templateOneDay(arrWithWeather));
+        .insertAdjacentHTML('beforeend', templateOneDay(objWithWeather));
     });
 
     // Додавання рандомної картинки на бекграунд
