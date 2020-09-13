@@ -14,6 +14,7 @@ import '@pnotify/core/dist/BrightTheme.css';
 import templateOneDay from '../handlebars/oneDayOfFiveDay.hbs';
 import getObj from './create5dayObj';
 
+
 export function handleInput() {
   refs.inputRef.addEventListener('submit', e => {
     e.preventDefault();
@@ -44,6 +45,9 @@ export function handleInput() {
 
     console.log(
       backImg.getImage(searchValue).then(image => {
+        if (image.length === 0) {
+          error({ title: 'Sorry!', text: 'The picture is not uploaded!' });
+        }
         const randomImage =
           image[Math.floor(Math.random() * image.length)].largeImageURL;
         console.log(
@@ -56,6 +60,8 @@ export function handleInput() {
   refs.bookmarkBtnRef.addEventListener('click', () => {
     const searchValue = refs.inputRef.search.value;
     cityValidationAddBookmark(searchValue);
+
+    refs.inputRef.search.value = '';
   });
 
   document.addEventListener('DOMContentLoaded', () => {
