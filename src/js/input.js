@@ -11,13 +11,14 @@ import getCarusel from './slick.js';
 import { error } from '@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
+import templateOneDay from '../handlebars/oneDayOfFiveDay.hbs';
+
 
 export function handleInput() {
   refs.inputRef.addEventListener('submit', e => {
     e.preventDefault();
     const searchValue = e.currentTarget.elements.search.value;
     //Блок з датою, світанком та заходом сонця
-
     oneDayTemplate(searchValue);
     forecastData.getForecast(searchValue).then(city => {
       if (city['cod'] === '404' || !searchValue) {
@@ -33,7 +34,7 @@ export function handleInput() {
       const arrData = forecast.list;
       const newArr = groupByDate(arrData);
       newArr.length = 5;
-
+      let arrWithWeather = [];
       newArr.map(el => {
         let value;
         for (value of el) {
@@ -44,6 +45,9 @@ export function handleInput() {
             weekday: 'long',
           }),
           date: new Date(value.dt * 1000).getDate(),
+          month: new Date(value.dt * 1000).toLocaleString('en', {
+            month: 'short',
+          }),
           weather: value.weather[0].icon,
           minTemperature: value.main.temp_min,
           maxTemperature: value.main.temp_max,
@@ -59,7 +63,12 @@ export function handleInput() {
             },
           ],
         };
+        arrWithWeather.push(dateOfFiveDays);
       });
+      document.querySelector('.five-day-section__list').innerHTML = '';
+      document
+        .querySelector('.five-day-section__list')
+        .insertAdjacentHTML('beforeend', templateOneDay(arrWithWeather));
     });
 
     // Додавання рандомної картинки на бекграунд

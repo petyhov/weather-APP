@@ -2,7 +2,7 @@ import forecastData from './fetchWeatherData.js';
 import refs from './refs.js';
 import { groupByDate } from './groupByDateFunction.js';
 import dateBlock from './createDateBlock.js';
-import backImg from './backgroundImage.js';
+import templateOneDay from '../handlebars/oneDayOfFiveDay.hbs';
 
 export function getByGeolocation({lat, lon}) {
   //Блок з датою, світанком та заходом сонця
@@ -21,7 +21,7 @@ export function getByGeolocation({lat, lon}) {
       const arrData = forecast.list;
       const newArr = groupByDate(arrData);
       newArr.length = 5;
-  
+      let arrWithWeather = [];
       newArr.map(el => {
         let value;
         for (value of el) {
@@ -32,6 +32,9 @@ export function getByGeolocation({lat, lon}) {
             weekday: 'long',
           }),
           date: new Date(value.dt * 1000).getDate(),
+          month: new Date(value.dt * 1000).toLocaleString('en', {
+            month: 'short',
+          }),
           weather: value.weather[0].icon,
           minTemperature: value.main.temp_min,
           maxTemperature: value.main.temp_max,
@@ -47,17 +50,13 @@ export function getByGeolocation({lat, lon}) {
             },
           ],
         };
+        arrWithWeather.push(dateOfFiveDays);
       });
     });
+    document.querySelector('.five-day-section__list').innerHTML = '';
+    document
+      .querySelector('.five-day-section__list')
+      .insertAdjacentHTML('beforeend', templateOneDay(arrWithWeather));
   
-  
-    // Додавання рандомної картинки на бекграунд
-  
-    console.log(
-      backImg.getImage().then(image => {
-        const randomImage = image[Math.floor(Math.random() * image.length)].largeImageURL;
-          refs.weatherBlock.style.backgroundImage = `url(https://www.myvin.com.ua/uploads/article/img_large/9636/52e1557de4d39a15d92a2ef33a9cd545.jpeg)`;
-        
-      }));
-};
+  };
     
