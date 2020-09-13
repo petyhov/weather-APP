@@ -14,7 +14,7 @@ export const downloadBookmarks = () => {
     const bookmarksTemplate = bookmarks
       .map(bookmark => exampleTemplate(bookmark))
       .map(item => refs.bookmarkRef.insertAdjacentHTML('beforeend', item));
-      getCarusel();
+      getCarusel('.bookmarks__list');
   }
 };
 
