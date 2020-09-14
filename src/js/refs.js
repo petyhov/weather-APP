@@ -19,4 +19,5 @@ export default {
   sunriseRef: document.getElementById('sunrise'),
   sunsetRef: document.getElementById('sunset'),
   preloaderRef: document.getElementById('preload-img'),
+  mainRef: document.querySelector('.main-section'),
 };

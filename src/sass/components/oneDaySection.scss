@@ -5,14 +5,15 @@
 .one-day-section {
   margin: 0 auto;
   margin-bottom: 32px;
+
   &__container {
     margin: 0 auto;
     @include tablet-media {
       width: 490px;
     }
     @include desktop-media {
-      position: absolute;
-      right: 0;
+      position: relative;
+      right: -428px;
     }
   }
   &__table {
@@ -100,7 +101,7 @@
       width: 126px;
       height: 29px;
       border-radius: 15px;
-      background-color: #f7f7f7;
+
       border: none;
     }
     &__todayBtn {
@@ -128,4 +129,10 @@
 .border {
   width: 1px;
   background-color: #28384a;
+}
+.isAtiveBtn {
+  background-color: #f7f7f7;
+}
+.noActiveBtn {
+  background-color: rgba(247, 247, 247, 0.5);
 }
