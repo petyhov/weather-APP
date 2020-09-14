@@ -39,7 +39,7 @@ module.exports = env => ({
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './index.html.ejs',
       minify: {
         collapseWhitespace: true,
         removeComments: true,
