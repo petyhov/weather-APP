@@ -1,5 +1,6 @@
 import './sass/main.scss';
 import './js/commentSection.js';
+import './js/switchButtons';
 import './js/oneHourTemplate';
 import './js/slick.js';
 import { defaultCity } from './js/defaultCity.js';
