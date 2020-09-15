@@ -27,4 +27,5 @@ export default {
   fiveDaysSectionRef: document.querySelector('.five-day-section'),
   oneDaySectionTableRef: document.querySelector('.one-day-section__table'),
   commentsSectionRef: document.querySelector('.comments'),
+  moreInfoRef: document.getElementById('five-day-section__hourly-list'),
 };

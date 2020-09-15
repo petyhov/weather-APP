@@ -1,5 +1,5 @@
 {{#each this}}
-<li class="five-day-section__item">
+<li class="five-day-section__item" data-index={{index}}>
     <h3 class="five-day-section__day">{{nameOfDay}}</h3>
     <h4 class="five-day-section__date">{{currentDay}} {{nameOfMonth}}</h4>
     <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="" />
@@ -16,6 +16,6 @@
         </div>
     </div>
     <button class="five-day-section__button">more info</button>
-    <ul class="five-day-section__hourly-list"></ul>
+    <ul id="five-day-section__hourly-list"></ul>
 </li>
 {{/each}}

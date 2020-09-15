@@ -31,10 +31,17 @@
     }
   }
   &__item {
+    > * {
+      pointer-events: none;
+    }
     width: 160px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    &:hover {
+      background-color: blanchedalmond;
+    }
+    cursor: pointer;
   }
   &__min-max-container {
     width: 100%;
@@ -101,3 +108,6 @@
   transform: rotate(0deg);
   transition: transform 0.5s linear;
 }
+
+// .five-day-section__item
+
