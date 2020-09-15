@@ -4,6 +4,9 @@ import oneDayTemplate from './oneDayTemplate';
 import { groupByDate } from './groupByDateFunction.js';
 import dateBlock from './createDateBlock.js';
 import backImg from './backgroundImage.js';
+import getObj from './create5dayObj';
+import templateOneDay from '../handlebars/oneDayOfFiveDay.hbs';
+import { moreInfo } from './oneHourTemplate.js';
 
 export function defaultCity() {
   //Блок з датою, світанком та заходом сонця
@@ -25,26 +28,38 @@ export function defaultCity() {
         for (value of el) {
           Object.values(...newArr[0])[1];
         }
-        const dateOfFiveDays = {
-          day: new Date(value.dt * 1000).toLocaleString('en', {
-            weekday: 'long',
-          }),
-          date: new Date(value.dt * 1000).getDate(),
-          weather: value.weather[0].icon,
-          minTemperature: value.main.temp_min,
-          maxTemperature: value.main.temp_max,
-          forecast: [
-            {
-              time:
-                new Date(value.dt * 1000).getUTCHours() +
-                new Date(value.dt * 1000).getUTCMinutes(),
-              weather: value.weather[0].icon,
-              pressure: value.main.pressure,
-              humidity: value.main.humidity,
-              wind: value.wind.speed,
-            },
-          ],
-        };
+        // const dateOfFiveDays = {
+        //   day: new Date(value.dt * 1000).toLocaleString('en', {
+        //     weekday: 'long',
+        //   }),
+        //   date: new Date(value.dt * 1000).getDate(),
+        //   weather: value.weather[0].icon,
+        //   minTemperature: value.main.temp_min,
+        //   maxTemperature: value.main.temp_max,
+        //   forecast: [
+        //     {
+        //       time:
+        //         new Date(value.dt * 1000).getUTCHours() +
+        //         new Date(value.dt * 1000).getUTCMinutes(),
+        //       weather: value.weather[0].icon,
+        //       pressure: value.main.pressure,
+        //       humidity: value.main.humidity,
+        //       wind: value.wind.speed,
+        //     },
+        //   ],
+        // };
+
+        
+    // Блок з прогнозом погоди на 5 днів
+
+    forecastData.getForecastFiveDays(searchValue).then(forecast => {
+      const objWithWeather = getObj(forecast);
+      document
+        .querySelector('.five-day-section__list').innerHTML = '';
+      document
+        .querySelector('.five-day-section__list')
+        .insertAdjacentHTML('beforeend', templateOneDay(objWithWeather));
+      moreInfo(objWithWeather);})
       });
     });
   

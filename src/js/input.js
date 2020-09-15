@@ -4,14 +4,11 @@ import forecastData from './fetchWeatherData.js';
 import dateBlock from './createDateBlock.js';
 import oneDayTemplate from './oneDayTemplate';
 import backImg from './backgroundImage.js';
-import { bookmarks, downloadBookmarks, updateBookmarks } from './bookmarks';
-import { cityValidationAddBookmark } from './cityValidation.js';
 import { error } from '@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 import templateOneDay from '../handlebars/oneDayOfFiveDay.hbs';
 import getObj from './create5dayObj';
-import oneHourlyForecast from './../handlebars/oneHourlyForecast.hbs';
 import { preloader } from './preloader.js';
 import { moreInfo } from './oneHourTemplate.js';
 
@@ -35,23 +32,25 @@ export function handleInput() {
     forecastData.getForecastFiveDays(searchValue).then(forecast => {
       const objWithWeather = getObj(forecast);
       document
+        .querySelector('.five-day-section__list').innerHTML = '';
+      document
         .querySelector('.five-day-section__list')
         .insertAdjacentHTML('beforeend', templateOneDay(objWithWeather));
       moreInfo(objWithWeather);
       // Додавання рандомної картинки на бекграунд
 
-      // console.log(
-      //   backImg.getImage(searchValue).then(image => {
-      //     if (image.length === 0) {
-      //       error({ title: 'Sorry!', text: 'The picture is not uploaded!' });
-      //     }
-      //     const randomImage =
-      //       image[Math.floor(Math.random() * image.length)].largeImageURL;
-      //     console.log(
-      //       (refs.weatherBlock.style.backgroundImage = `url(${randomImage})`),
-      //     );
-      //   }),
-      // );
+      console.log(
+        backImg.getImage(searchValue).then(image => {
+          if (image.length === 0) {
+            error({ title: 'Sorry!', text: 'The picture is not uploaded!' });
+          }
+          const randomImage =
+            image[Math.floor(Math.random() * image.length)].largeImageURL;
+          console.log(
+            (refs.weatherBlock.style.backgroundImage = `url(${randomImage})`),
+          );
+        }),
+      );
     });
   });
 }
