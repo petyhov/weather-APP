@@ -101,7 +101,7 @@
       width: 126px;
       height: 29px;
       border-radius: 15px;
-
+      cursor: pointer;
       border: none;
     }
     &__todayBtn {
@@ -130,9 +130,9 @@
   width: 1px;
   background-color: #28384a;
 }
-.isAtiveBtn {
+.ative-btn {
   background-color: #f7f7f7;
 }
-.noActiveBtn {
+.disactive-btn {
   background-color: rgba(247, 247, 247, 0.5);
 }

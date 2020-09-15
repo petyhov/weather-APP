@@ -13,7 +13,6 @@ import templateOneDay from '../handlebars/oneDayOfFiveDay.hbs';
 import getObj from './create5dayObj';
 import { preloader } from './preloader.js';
 
-
 export function handleInput() {
   refs.inputRef.addEventListener('submit', e => {
     e.preventDefault();

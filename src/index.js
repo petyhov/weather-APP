@@ -1,15 +1,12 @@
 import './sass/main.scss';
 import './js/commentSection.js';
-
+import './js/switchButtons';
 import './js/slick.js';
 import { defaultCity } from './js/defaultCity.js';
 import { handleInput } from './js/input.js';
 import { getByGeolocation } from './js/geolocationFunc.js';
 import refs from './js/refs.js';
-import {
-  preloader,
-  getGeo,
-} from './js/preloader.js';
+import { preloader, getGeo } from './js/preloader.js';
 
 getGeo()
   .then(location => {
