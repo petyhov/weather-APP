@@ -3,7 +3,7 @@ import refs from './refs';
 
 const weatherOneDay = searchValue => {
   getData.getForecast(searchValue).then(data => {
-    refs.locationWeather.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    refs.locationWeather.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
     refs.locationName.textContent = `${data.name}, ${data.sys.country}`;
     refs.todayTemperature.textContent = Math.round(data.main.temp);
     refs.todayMinTemperature.textContent = Math.round(data.main.temp_min);
