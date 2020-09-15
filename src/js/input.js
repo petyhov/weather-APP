@@ -13,7 +13,7 @@ import templateOneDay from '../handlebars/oneDayOfFiveDay.hbs';
 import getObj from './create5dayObj';
 import oneHourlyForecast from './../handlebars/oneHourlyForecast.hbs';
 import { preloader } from './preloader.js';
-
+import { moreInfo } from './oneHourTemplate.js';
 
 export function handleInput() {
   refs.inputRef.addEventListener('submit', e => {
@@ -31,44 +31,27 @@ export function handleInput() {
     });
 
     // Блок з прогнозом погоди на 5 днів
-   
+
     forecastData.getForecastFiveDays(searchValue).then(forecast => {
-      
       const objWithWeather = getObj(forecast);
-      document.querySelector('.five-day-section__list').innerHTML = '';
       document
         .querySelector('.five-day-section__list')
         .insertAdjacentHTML('beforeend', templateOneDay(objWithWeather));
+      moreInfo(objWithWeather);
+      // Додавання рандомної картинки на бекграунд
 
-    // Додавання рандомної картинки на бекграунд
-
-    console.log(
-      backImg.getImage(searchValue).then(image => {
-        if (image.length === 0) {
-          error({ title: 'Sorry!', text: 'The picture is not uploaded!' });
-        }
-        const randomImage =
-          image[Math.floor(Math.random() * image.length)].largeImageURL;
-        console.log(
-          (refs.weatherBlock.style.backgroundImage = `url(${randomImage})`),
-        );
-      }),
-    );
-  });
-
-  refs.bookmarkBtnRef.addEventListener('click', () => {
-    const searchValue = refs.inputRef.search.value;
-    cityValidationAddBookmark(searchValue);
-
-    refs.inputRef.search.value = '';
-  });
-
-  document.addEventListener('DOMContentLoaded', () => {
-    downloadBookmarks();
-    refs.bookmarkRef.addEventListener('click', e => {
-      if (Object.values(e.target.classList).includes('bookmarkcCloseBtn')) {
-        e.target.parentElement.remove();
-      }
+      // console.log(
+      //   backImg.getImage(searchValue).then(image => {
+      //     if (image.length === 0) {
+      //       error({ title: 'Sorry!', text: 'The picture is not uploaded!' });
+      //     }
+      //     const randomImage =
+      //       image[Math.floor(Math.random() * image.length)].largeImageURL;
+      //     console.log(
+      //       (refs.weatherBlock.style.backgroundImage = `url(${randomImage})`),
+      //     );
+      //   }),
+      // );
     });
   });
-})}
+}
