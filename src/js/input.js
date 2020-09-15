@@ -11,6 +11,7 @@ import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 import templateOneDay from '../handlebars/oneDayOfFiveDay.hbs';
 import getObj from './create5dayObj';
+import oneHourlyForecast from './../handlebars/oneHourlyForecast.hbs';
 import { preloader } from './preloader.js';
 
 
@@ -30,15 +31,14 @@ export function handleInput() {
     });
 
     // Блок з прогнозом погоди на 5 днів
-
+   
     forecastData.getForecastFiveDays(searchValue).then(forecast => {
+      
       const objWithWeather = getObj(forecast);
-      console.log(objWithWeather);
       document.querySelector('.five-day-section__list').innerHTML = '';
       document
         .querySelector('.five-day-section__list')
         .insertAdjacentHTML('beforeend', templateOneDay(objWithWeather));
-    });
 
     // Додавання рандомної картинки на бекграунд
 
@@ -71,4 +71,4 @@ export function handleInput() {
       }
     });
   });
-}
+})}
