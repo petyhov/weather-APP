@@ -16,6 +16,7 @@ const getObj = data => {
     let currentDay = time.getUTCDate();
     if (dayArr !== currentDay) {
       dayArr = currentDay;
+      index += 1;
       const nameOfDay = time.toLocaleString('en', { weekday: 'long' });
       const nameOfMonth = time.toLocaleString('en', { month: 'short' });
       arrWithDayData.push({
@@ -25,8 +26,8 @@ const getObj = data => {
         time: [],
         min: temporaryTemp,
         max: temporaryTemp,
+        index,
       });
-      index += 1;
       setTimeArr(thisDay, time);
     } else {
       if (arrWithDayData[index]['min'] > Math.round(thisDay['main']['temp'])) {

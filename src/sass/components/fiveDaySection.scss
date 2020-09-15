@@ -24,10 +24,17 @@
     justify-content: space-evenly;
   }
   &__item {
+    > * {
+      pointer-events: none;
+    }
     width: 160px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    &:hover {
+      background-color: blanchedalmond;
+    }
+    cursor: pointer;
   }
   &__min-max-container {
     width: 100%;
@@ -62,3 +69,5 @@
     font-size: 25px;
   }
 }
+
+// .five-day-section__item
