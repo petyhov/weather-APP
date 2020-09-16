@@ -1,9 +1,3 @@
-import $ from 'jquery';
-import 'slick-carousel';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import 'slick-carousel/slick/slick.js';
-
 export function getCarusel(element){
   $(element).slick({
   arrows:true,

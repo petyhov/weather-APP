@@ -11,6 +11,8 @@ import templateOneDay from '../handlebars/oneDayOfFiveDay.hbs';
 import getObj from './create5dayObj';
 import { preloader } from './preloader.js';
 import { moreInfo } from './oneHourTemplate.js';
+import './bookmarks.js';
+import { getCarusel } from './slick.js';
 
 export function handleInput() {
   refs.inputRef.addEventListener('submit', e => {
@@ -54,3 +56,4 @@ export function handleInput() {
     });
   });
 }
+
