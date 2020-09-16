@@ -8,6 +8,7 @@ for (const value of obj){
             humidity: e.humidity,
             pressure: e.pressure,
             wind: e.wind,
+            weather: e.weather,
         })),
     }
 }

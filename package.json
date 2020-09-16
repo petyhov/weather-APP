@@ -62,6 +62,7 @@
     "moment": "^2.28.0",
     "navigator": "^1.0.1",
     "net": "^1.0.2",
+    "slick": "^1.12.2",
     "slick-carousel": "^1.8.1",
     "tls": "0.0.1",
     "xmlhttprequest": "^1.8.0"

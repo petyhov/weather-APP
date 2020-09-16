@@ -3,6 +3,10 @@ import refs from './refs.js';
 import { groupByDate } from './groupByDateFunction.js';
 import dateBlock from './createDateBlock.js';
 import templateOneDay from '../handlebars/oneDayOfFiveDay.hbs';
+import getObj from './create5dayObj';
+import { moreInfo } from './oneHourTemplate.js';
+
+
 
 export function getByGeolocation({lat, lon}) {
   //Блок з датою, світанком та заходом сонця
@@ -16,7 +20,7 @@ export function getByGeolocation({lat, lon}) {
     });
   
     // Блок з прогнозом погоди на 5 днів
-  let arrWithWeather = [];
+    
     forecastData.getForecastFiveDaysByCurrentPosition({lat, lon}).then(forecast => {
       const arrData = forecast.list;
       const newArr = groupByDate(arrData);
@@ -26,36 +30,20 @@ export function getByGeolocation({lat, lon}) {
         for (value of el) {
           Object.values(...newArr[0])[1];
         }
-        const dateOfFiveDays = {
-          day: new Date(value.dt * 1000).toLocaleString('en', {
-            weekday: 'long',
-          }),
-          date: new Date(value.dt * 1000).getDate(),
-          month: new Date(value.dt * 1000).toLocaleString('en', {
-            month: 'short',
-          }),
-          weather: value.weather[0].icon,
-          minTemperature: value.main.temp_min,
-          maxTemperature: value.main.temp_max,
-          forecast: [
-            {
-              time:
-                new Date(value.dt * 1000).getUTCHours() +
-                new Date(value.dt * 1000).getUTCMinutes(),
-              weather: value.weather[0].icon,
-              pressure: value.main.pressure,
-              humidity: value.main.humidity,
-              wind: value.wind.speed,
-            },
-          ],
-        };
-        arrWithWeather.push(dateOfFiveDays);
-      });
     });
-    document.querySelector('.five-day-section__list').innerHTML = '';
-    document
-      .querySelector('.five-day-section__list')
-      .insertAdjacentHTML('beforeend', templateOneDay(arrWithWeather));
+
+// Блок з прогнозом погоди на 5 днів
+
+forecastData.getForecastFiveDays('Vinnytsia').then(forecast => {
+  const objWithWeather = getObj(forecast);
+  console.log(forecast);
+  document
+    .querySelector('.five-day-section__list').innerHTML = '';
+  document
+    .querySelector('.five-day-section__list')
+    .insertAdjacentHTML('beforeend', templateOneDay(objWithWeather));
+  moreInfo(objWithWeather);})
+  });
   
   };
     
