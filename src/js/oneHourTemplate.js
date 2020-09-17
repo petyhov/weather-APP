@@ -1,4 +1,5 @@
 import hourlyTemplate from '../handlebars/oneHourlyForecast.hbs';
+import { getCaruselHours } from './slick-carus';
 
 export const moreInfo = obj => {
   document
@@ -15,6 +16,7 @@ export const moreInfo = obj => {
           'beforeend',
           hourlyTemplate(obj[index]['time']),
         );
+        getCaruselHours();
       }
     });
 };

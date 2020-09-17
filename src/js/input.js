@@ -7,12 +7,9 @@ import backImg from './backgroundImage.js';
 import { error } from '@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
-import templateOneDay from '../handlebars/oneDayOfFiveDay.hbs';
-import getObj from './create5dayObj';
+import { fiveDaysForecast } from './forecastForFiveDays.js';
 import { preloader } from './preloader.js';
-import { moreInfo } from './oneHourTemplate.js';
 import './bookmarks.js';
-import { getCarusel } from './slick.js';
 
 export function handleInput() {
   refs.inputRef.addEventListener('submit', e => {
@@ -30,30 +27,21 @@ export function handleInput() {
     });
 
     // Блок з прогнозом погоди на 5 днів
+    fiveDaysForecast(searchValue);
+    
+    // Додавання рандомної картинки на бекграунд
 
-    forecastData.getForecastFiveDays(searchValue).then(forecast => {
-      const objWithWeather = getObj(forecast);
-      document
-        .querySelector('.five-day-section__list').innerHTML = '';
-      document
-        .querySelector('.five-day-section__list')
-        .insertAdjacentHTML('beforeend', templateOneDay(objWithWeather));
-      moreInfo(objWithWeather);
-      // Додавання рандомної картинки на бекграунд
-
-      console.log(
-        backImg.getImage(searchValue).then(image => {
-          if (image.length === 0) {
-            error({ title: 'Sorry!', text: 'The picture is not uploaded!' });
-          }
-          const randomImage =
-            image[Math.floor(Math.random() * image.length)].largeImageURL;
-          console.log(
-            (refs.weatherBlock.style.backgroundImage = `url(${randomImage})`),
-          );
-        }),
-      );
-    });
+    console.log(
+      backImg.getImage(searchValue).then(image => {
+        if (image.length === 0) {
+          error({ title: 'Sorry!', text: 'The picture is not uploaded!' });
+        }
+        const randomImage =
+          image[Math.floor(Math.random() * image.length)].largeImageURL;
+        console.log(
+          (refs.weatherBlock.style.backgroundImage = `url(${randomImage})`),
+        );
+      }),
+    );
   });
 }
-
