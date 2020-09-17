@@ -30,3 +30,8 @@ function handleMoreDaysBtn() {
   refs.oneDaySectionTableRef.classList.add('visually-hidden');
   refs.commentsSectionRef.classList.add('visually-hidden');
 }
+
+refs.closeMoreInfoRef.addEventListener('click', () => {
+  refs.closeMoreInfoRef.classList.remove('active-hourly-weather-close');
+  refs.listHourRef.classList.add('visually-hidden');
+});

@@ -11,20 +11,23 @@
     <main class="main-section">
       <div class="preload-container" id="preload-img">
         <div class="preloader">
-        <div class="dash uno"></div>
-        <div class="dash dos"></div>
-        <div class="dash tres"></div>
-        <div class="dash cuatro"></div>
-      </div>
+          <div class="dash uno"></div>
+          <div class="dash dos"></div>
+          <div class="dash tres"></div>
+          <div class="dash cuatro"></div>
+        </div>
       </div>
       <div class="background-image">
-        <div class="container">                             
-           ${require("./html/input.html")}
+        <div class="container">
+          ${require("./html/input.html")}
           ${require("./html/todayTemperature.html")}
+          <div class="data-comments-block">
+            ${require('./html/data-block.html')}
+            ${require("./html/coments.html")}
+          </div>
+
           ${require("./html/fiveDayTemplate.html")}
-          ${require('./html/data-block.html')} ${require("./html/coments.html")}
         </div>
-      
       </div>
     </main>
 

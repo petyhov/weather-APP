@@ -34,9 +34,9 @@ export const updateBookmarks = city => {
 refs.bookmarkBtnRef.addEventListener('click', () => {
   const searchValue = refs.inputRef.search.value;
   cityValidationAddBookmark(searchValue);
-
   refs.inputRef.search.value = '';
 });
+
 document.addEventListener('DOMContentLoaded', () => {
   downloadBookmarks();
   refs.bookmarkRef.addEventListener('click', e => {

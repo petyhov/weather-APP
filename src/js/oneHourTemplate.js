@@ -1,3 +1,4 @@
+import refs from './refs';
 import hourlyTemplate from '../handlebars/oneHourlyForecast.hbs';
 import { getCaruselHours } from './slick-carus';
 

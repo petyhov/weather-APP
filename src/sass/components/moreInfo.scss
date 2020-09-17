@@ -1,7 +1,8 @@
-.item__hour{
-    display: flex;
-    list-style-type: none;
-    padding: 10px;
+.list__hour {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 10px;
 }
 .timeWeather {
   display: inline-block;
@@ -19,6 +20,10 @@
   text-align: center;
   margin-bottom: 30px;
 
+  &:hover {
+    opacity: 0.7;
+  }
+
     &:hover{
      opacity: 0.7;
     }
@@ -27,27 +32,32 @@
     width: 100% -10px;
   }
 
+  @include desktop-media {
+    margin-right: 10px;
+  }
+
   &__time {
-    color: #fff;
+    color: $main-color;
   }
 
   &__temp-icon {
     pointer-events: none;
     margin: 0 auto;
-    width: 42px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
   }
 
-  &__temperature{
+  &__temperature {
     display: inline-block;
     font-size: 18px;
     font-family: Lato;
-    color: #ff6b08;
+    color: $orange-color;
     font-weight: 700;
     pointer-events: none;
   }
 
-  &__data{
+  &__data {
+    list-style: none;
     width: 88px;
     text-align: left;
     display: flex;
@@ -56,32 +66,68 @@
     pointer-events: none;
   }
 
-  &__pressure{
-    list-style-type: none;
+  &__pressure {
     margin-top: 4px;
     margin-bottom: 4px;
     display: flex;
     align-items: center;
+
+    &::before {
+      @include psevdo-icon;
+      background-image: url(../images/preashure.png);
+    }
   }
 
-  &__humidity{
+  &__humidity {
     margin-top: 4px;
     margin-bottom: 4px;
     display: flex;
     align-items: center;
+
+    &::before {
+      @include psevdo-icon;
+      background-image: url(../images/humidity.png);
+    }
   }
 
-  &__wind{
+  &__wind {
     margin-top: 4px;
     margin-bottom: 4px;
     display: flex;
     align-items: center;
+
+    &::before {
+      @include psevdo-icon;
+      background-image: url(../images/wind.png);
+    }
   }
 }
 
-.data__image{
-    width: 25px;
-    height: 22px;
+.data__image {
+  width: 25px;
+  height: 22px;
 }
 
+.more-info-box {
+  display: flex;
+  justify-content: flex-end;
+}
+.hourly-weather-close {
+  display: none;
+  text-align: center;
+  width: 24px;
+  height: 18px;
+  border-radius: 20px;
+  border: none;
+  color: $main-color;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-color: hsla(0, 0%, 100%, 0.2);
+  outline: none;
+  margin-right: 15px;
+}
 
+.active-hourly-weather-close {
+  display: block;
+}
