@@ -1,5 +1,6 @@
 import refs from './refs';
-import { cityValidationAddBookmark } from './cityValidation.js';
+import {cityValidationAddBookmark} from './cityValidation.js';
+import {getCarusel} from './slick-carus.js';
 
 export let bookmarks = [];
 
@@ -13,7 +14,11 @@ export const downloadBookmarks = () => {
     const bookmarksTemplate = bookmarks
       .map(bookmark => exampleTemplate(bookmark))
       .map(item => refs.bookmarkRef.insertAdjacentHTML('beforeend', item));
+      if(bookmarks.length >= 1){
+        getCarusel('.bookmarks__list');
+      }
   }
+  
 };
 
 export const updateBookmarks = city => {
@@ -21,8 +26,10 @@ export const updateBookmarks = city => {
     bookmarks.push(city);
     localStorage.setItem('city', JSON.stringify(bookmarks));
     refs.bookmarkRef.insertAdjacentHTML('beforeend', exampleTemplate(city));
-  }
-};
+  };
+  getCarusel('.bookmarks__list');
+}
+
 
 refs.bookmarkBtnRef.addEventListener('click', () => {
   const searchValue = refs.inputRef.search.value;

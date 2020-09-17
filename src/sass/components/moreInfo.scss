@@ -5,14 +5,16 @@
   padding: 10px;
 }
 .timeWeather {
-  border-width: 1px;
-  border-style: solid;
-  margin-right: 5px;
-  border-radius: 25px;
-  color: hsla(0, 0%, 100%, 0.541);
-  width: 118px;
-  height: 218px;
-  padding: 15px;
+  display: inline-block;
+    border-width: 1px;
+    border-style: solid;
+    margin-right: 5px;
+    border-radius: 25px;
+    width: 110px;
+    margin-right: 10px;
+    color: hsla(0, 0%, 100%, 0.541);
+    height: 218px;
+    padding: 15px 0px;
   font-size: 16px;
   font-family: Lato;
   text-align: center;
@@ -22,8 +24,12 @@
     opacity: 0.7;
   }
 
-  @include tablet-media {
-    margin-right: 33px;
+    &:hover{
+     opacity: 0.7;
+    }
+  @include desktop-media {
+    display: inline-block;
+    width: 100% -10px;
   }
 
   @include desktop-media {

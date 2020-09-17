@@ -2,7 +2,7 @@ import './sass/main.scss';
 import './js/commentSection.js';
 import './js/switchButtons';
 import './js/oneHourTemplate';
-import './js/slick.js';
+import './js/slick-carus.js';
 import { defaultCity } from './js/defaultCity.js';
 import { handleInput } from './js/input.js';
 import { getByGeolocation } from './js/geolocationFunc.js';
