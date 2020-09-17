@@ -19,15 +19,13 @@
     width: 600px;
     border-radius: 0;
     border-top-right-radius: 35px;
-    position: absolute;
-    bottom: 0px;
-    left: 0;
     margin-bottom: 0;
+    margin-left: -200px;
   }
 
   &__day {
     color: $data-color;
-    font-weight: 300;
+    font-family: $data-font;
     font-size: 45px;
     line-height: 56px;
     margin-top: 32px;
@@ -55,6 +53,11 @@
       }
     }
   }
+
+  &__day > sup {
+    margin-right: 14px;
+  }
+
   &__wrapper {
     @include desktop-media {
       @include center-flex(hor);
@@ -112,5 +115,12 @@
   &__icon {
     width: 30px;
     height: 30px;
+  }
+}
+
+.data-comments-block {
+  @include desktop-media {
+    display: flex;
+    justify-content: space-between;
   }
 }

@@ -1,5 +1,5 @@
 import refs from './refs';
-import {cityValidationAddBookmark} from './cityValidation.js';
+import { cityValidationAddBookmark } from './cityValidation.js';
 
 export let bookmarks = [];
 
@@ -13,7 +13,6 @@ export const downloadBookmarks = () => {
     const bookmarksTemplate = bookmarks
       .map(bookmark => exampleTemplate(bookmark))
       .map(item => refs.bookmarkRef.insertAdjacentHTML('beforeend', item));
- 
   }
 };
 
@@ -28,9 +27,9 @@ export const updateBookmarks = city => {
 refs.bookmarkBtnRef.addEventListener('click', () => {
   const searchValue = refs.inputRef.search.value;
   cityValidationAddBookmark(searchValue);
-
   refs.inputRef.search.value = '';
 });
+
 document.addEventListener('DOMContentLoaded', () => {
   downloadBookmarks();
   refs.bookmarkRef.addEventListener('click', e => {

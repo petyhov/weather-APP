@@ -3,7 +3,7 @@ export default {
   bookmarkRef: document.querySelector('.bookmarks__list'),
   bookmarkBtnRef: document.querySelector('.input-section__bookmarkBtn'),
   dataBlockRef: document.querySelector('.data'),
-  fiveDaysRef: document.querySelector('.five__days'),
+  fiveDaysListRef: document.querySelector('.five-day-section__list'),
   oneDaySection: document.querySelector('.one-day-section'),
   locationName: document.getElementById('locationName'),
   locationWeather: document.getElementById('locationWeather'),
@@ -27,5 +27,6 @@ export default {
   fiveDaysSectionRef: document.querySelector('.five-day-section'),
   oneDaySectionTableRef: document.querySelector('.one-day-section__table'),
   commentsSectionRef: document.querySelector('.comments'),
-  moreInfoRef: document.getElementById('five-day-section__hourly-list'),
+  closeMoreInfoRef: document.querySelector('.hourly-weather-close'),
+  listHourRef: document.querySelector('.list__hour'),
 };

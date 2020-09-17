@@ -20,7 +20,7 @@
     }
 
     @include desktop-media {
-      margin-top: 196px;
+      margin-top: 18px;
       margin-right: 0;
     }
   }
@@ -41,7 +41,7 @@
 
   &__author {
     font-size: 14px;
-    font-family: 'latoItalic';
+    font-family: $comment-font;
     color: $main-color;
     text-align: right;
     animation: anim 9s infinite reverse;

@@ -18,6 +18,16 @@ $desktop-width: 1279px;
   content: $content;
 }
 
+@mixin psevdo-icon($display: inline-block, $content: '') {
+  display: $display;
+  content: $content;
+  width: 28px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: 0;
+  margin-right: 4px;
+}
+
 @mixin center-flex($type: 'all') {
   display: flex;
 
