@@ -1,5 +1,5 @@
 import refs from './refs';
-import { getCarusel } from './slick.js';
+import {cityValidationAddBookmark} from './cityValidation.js';
 
 export let bookmarks = [];
 
@@ -13,7 +13,7 @@ export const downloadBookmarks = () => {
     const bookmarksTemplate = bookmarks
       .map(bookmark => exampleTemplate(bookmark))
       .map(item => refs.bookmarkRef.insertAdjacentHTML('beforeend', item));
-    // getCarusel('.bookmarks__list');
+ 
   }
 };
 
