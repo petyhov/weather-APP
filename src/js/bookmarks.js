@@ -1,6 +1,6 @@
 import refs from './refs';
 import {cityValidationAddBookmark} from './cityValidation.js';
-import {getCarusel} from './slick-carus.js';
+import {getCarusel, getCaruselHours} from './slick-carus.js';
 
 export let bookmarks = [];
 
@@ -18,7 +18,6 @@ export const downloadBookmarks = () => {
         getCarusel('.bookmarks__list');
       }
   }
-  
 };
 
 export const updateBookmarks = city => {
@@ -42,6 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
   refs.bookmarkRef.addEventListener('click', e => {
     if (Object.values(e.target.classList).includes('bookmarkcCloseBtn')) {
       e.target.parentElement.remove();
-    }
-  });
+      const value = e.target.parentElement.textContent;
+      bookmarks = JSON.parse(localStorage.getItem('city'));
+      bookmarks.map(el=>{
+        if(value === el){
+          const index = bookmarks.indexOf(el);
+        bookmarks.splice(index, 1);
+        localStorage.setItem('city', JSON.stringify(bookmarks));
+               }
+      });
+  };
 });
+})

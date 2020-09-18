@@ -1,12 +1,10 @@
 import refs from './refs';
 import hourlyTemplate from '../handlebars/oneHourlyForecast.hbs';
-import { getCaruselHours } from './slick-carus';
 
 export const moreInfo = obj => {
   document
     .querySelector('.five-day-section__list')
     .addEventListener('click', e => {
-      //   console.log(e.currentTarget);
       if (
         Object.values(e.target.classList).includes('five-day-section__item')
       ) {
@@ -17,7 +15,6 @@ export const moreInfo = obj => {
           'beforeend',
           hourlyTemplate(obj[index]['time']),
         );
-        getCaruselHours();
       }
     });
 };
