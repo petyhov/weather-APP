@@ -3,6 +3,7 @@ import refs from './refs.js';
 import { groupByDate } from './groupByDateFunction.js';
 import dateBlock from './createDateBlock.js';
 import { fiveDaysForecast } from './forecastForFiveDays.js';
+import {getCaruselDay} from './slick-carus.js';
 
 
 
@@ -34,5 +35,7 @@ export function getByGeolocation({lat, lon}) {
 // Блок з прогнозом погоди на 5 днів
 
 fiveDaysForecast('Vinnytsia');
+
+getCaruselDay();
   })};
     

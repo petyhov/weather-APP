@@ -10,6 +10,7 @@ import '@pnotify/core/dist/BrightTheme.css';
 import { fiveDaysForecast } from './forecastForFiveDays.js';
 import { preloader } from './preloader.js';
 import './bookmarks.js';
+import {getCaruselInput} from './slick-carus.js';
 
 export function handleInput() {
   refs.inputRef.addEventListener('submit', e => {
@@ -28,7 +29,7 @@ export function handleInput() {
 
     // Блок з прогнозом погоди на 5 днів
     fiveDaysForecast(searchValue);
-    
+    getCaruselInput();
     // Додавання рандомної картинки на бекграунд
 
     console.log(

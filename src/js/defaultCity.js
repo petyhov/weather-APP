@@ -5,6 +5,7 @@ import { groupByDate } from './groupByDateFunction.js';
 import dateBlock from './createDateBlock.js';
 import backImg from './backgroundImage.js';
 import { fiveDaysForecast } from './forecastForFiveDays.js';
+import {getCaruselDay} from './slick-carus.js';
 
 export function defaultCity() {
   //Блок з датою, світанком та заходом сонця
@@ -28,6 +29,8 @@ export function defaultCity() {
       }
       // Блок з прогнозом погоди на 5 днів
       fiveDaysForecast(searchValue);
+
+      getCaruselDay();
     });
   });
 
