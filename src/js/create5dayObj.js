@@ -54,7 +54,8 @@ const setTimeArr = (day, time) => {
   if (hourTime === 12) {
     arrWithDayData[index]['weatherDay'] = day['weather'][0]['icon'];
   }
-  const localTime = hourTime + time.getTimezoneOffset() / 60;
+  const localTimeHours =('0' + (hourTime + time.getTimezoneOffset() / 60)).slice('-2');
+  const localTime = localTimeHours +':' + '00';
   const weather = day['weather'][0]['icon'];
   const temperature = Math.round(day['main']['temp']);
   const pressure = day['main']['pressure'];
