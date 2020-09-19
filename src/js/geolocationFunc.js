@@ -18,9 +18,6 @@ refs.moreDaysRef.addEventListener('click', ()=>{
     allForFiveDay(objOf5day);
     getCaruselDay();
 })
-
-console.log('hello');
-
   });
 
 }

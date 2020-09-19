@@ -33,6 +33,8 @@ export function getCarusel(element){
     $('.five-day-section__list').not('.slick-initialized').slick({
       infinite: false,
       draggable: false,
+      prevArrow: $('.five-day-section-prev__btn'),
+      nextArrow: $('.five-day-section-next__btn'),
       slidesToShow: 5,
       slidesToScroll: 1,
       responsive: [

@@ -14,12 +14,11 @@ export function defaultCity() {
   });
 
   preloaderOff();
-  refs.moreDaysRef.addEventListener('click', () => {
+  refs.moreDaysRef.addEventListener('click', ()=>{
     forecastData.getForecastFiveDays(searchValue).then(city => {
-      let objOf5day = get5dayobj(city);
-      allForFiveDay(objOf5day);
-      getCaruselDay();
-      console.log(document.querySelector('.five-day-section__button'));
-    });
-  });
+        let objOf5day = get5dayobj(city);
+        allForFiveDay(objOf5day);
+        getCaruselDay();
+      });
+  })
 }

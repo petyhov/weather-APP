@@ -16,7 +16,6 @@ refs.inputRef.addEventListener('submit', e => {
   preloaderOff();
   
 refs.moreDaysRef.addEventListener('click', ()=>{
-  console.log('sucsess');
   forecastData.getForecastFiveDays(searchValue).then(city => {
       let objOf5day = get5dayobj(city);
       allForFiveDay(objOf5day);
