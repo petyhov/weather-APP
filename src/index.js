@@ -15,12 +15,14 @@ function getGeo() {
 
 getGeo()
   .then(location => {
+    document.getElementById('main-id').classList.remove('main-section-none');
     const lat = location.coords.latitude;
     const lon = location.coords.longitude;
     getByGeolocation({ lat, lon });
     preloaderOn();
   })
   .catch(error => {
+    document.getElementById('main-id').classList.remove('main-section-none');
     preloaderOn();
     defaultCity();
   });

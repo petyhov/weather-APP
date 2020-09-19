@@ -8,8 +8,9 @@
       width: 490px;
     }
     @include desktop-media {
-      position: relative;
-      right: -428px;
+      position: absolute;
+      right: 0;
+      top: 210px;
     }
   }
   &__table {

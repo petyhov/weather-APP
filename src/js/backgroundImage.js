@@ -18,12 +18,15 @@ const findImg = {
 
 const getImg = searchValue => {
   findImg.getImage(searchValue).then(image => {
-    // if (image.length === 0) {
-    //   error({ title: 'Sorry!', text: 'The picture is not uploaded!' });
-    // }
-    const randomImage =
+    if (image.length !== 0) {
+      // error({ title: 'Sorry!', text: 'The picture is not uploaded!' });
+      const randomImage =
       image[Math.floor(Math.random() * image.length)].largeImageURL;
     refs.weatherBlock.style.backgroundImage = `url(${randomImage})`;
+    }
+    // const randomImage =
+    //   image[Math.floor(Math.random() * image.length)].largeImageURL;
+    // refs.weatherBlock.style.backgroundImage = `url(${randomImage})`;
   });
 };
 

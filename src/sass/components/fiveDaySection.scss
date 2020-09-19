@@ -12,6 +12,7 @@
       width: 608px;
     }
     @include desktop-media {
+      margin-top: 20px;
       width: 1060px;
     }
   }
@@ -130,7 +131,7 @@
   display: flex;
     justify-content: center;
     position: absolute;
-    top: 265px;
+    top: 255px;
     left: 110px;
 }
 
