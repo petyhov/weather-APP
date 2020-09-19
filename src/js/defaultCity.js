@@ -4,6 +4,7 @@ import allForOneDay from './allForOneDay';
 import allForFiveDay from './allForFiveDay';
 import { getCaruselDay } from './slick.js';
 import { preloaderOff } from './preloader';
+import refs from './refs.js';
 
 export function defaultCity() {
   let searchValue = 'london';
@@ -11,10 +12,14 @@ export function defaultCity() {
   forecastData.getForecast(searchValue).then(city => {
     allForOneDay(city);
   });
-  forecastData.getForecastFiveDays(searchValue).then(city => {
-    let objOf5day = get5dayobj(city);
-    allForFiveDay(objOf5day);
-    preloaderOff();
-    // getCaruselDay();
+
+  preloaderOff();
+  refs.moreDaysRef.addEventListener('click', () => {
+    forecastData.getForecastFiveDays(searchValue).then(city => {
+      let objOf5day = get5dayobj(city);
+      allForFiveDay(objOf5day);
+      getCaruselDay();
+      console.log(document.querySelector('.five-day-section__button'));
+    });
   });
 }

@@ -20,9 +20,9 @@ const downloadBookmarks = () => {
       .map(bookmark => exampleTemplate(bookmark))
       .map(item => refs.bookmarkRef.insertAdjacentHTML('beforeend', item));
   }
-  // if (bookmarks.length >= 2) {
-  //   getCarusel('.bookmarks__list');
-  // }
+  if (bookmarks.length >= 2) {
+    getCarusel('.bookmarks__list');
+  }
 };
 
 export const updateBookmarks = city => {
