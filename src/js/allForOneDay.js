@@ -6,10 +6,6 @@ import { bookmarks } from './bookmarks';
 
 const allForOne = city => {
 
-  for (let bookmark of refs.bookmarkRef.children) {
-    if (bookmark.classList.contains('orange'))
-      bookmark.classList.remove('orange');
-  }
   templateWeatherOneDay(city);
   dateBlock(city);
   getBackground(city['name']);
@@ -17,10 +13,14 @@ const allForOne = city => {
   
   if (bookmarks.includes(city['name'])) {
     for (let bookmark of refs.bookmarkRef.children) {
-      if (bookmark.textContent === city['name'])
-        bookmark.classList.add('orange');
-    }
+    if(refs.inputRef.textContent === bookmark.textContent || city['name']){
+      refs.bookmarkBtnRef.classList.add('orange');
+    } 
   }
+}else {
+  refs.bookmarkBtnRef.classList.remove('orange');
+};
+
 };
 
 export default allForOne;

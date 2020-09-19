@@ -47,6 +47,7 @@
     transform: translateY(-50%);
     right: 22px;
     cursor: pointer;
+    outline: none;
   }
 }
 .bookmarks {
@@ -54,7 +55,6 @@
     margin: 0 auto;
     list-style: none;
     display: flex;
-    justify-content: space-between;
 
     @include tablet-media {
       width: 506px;
@@ -76,7 +76,7 @@
   }
 }
 .orange {
-  background-color: orange;
+  fill: orange;
 }
 
 .bookmarkcCloseBtn {
