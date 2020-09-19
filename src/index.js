@@ -1,28 +1,26 @@
 import './sass/main.scss';
+import { getByGeolocation } from './js/geolocationFunc';
+import { defaultCity } from './js/defaultCity';
+import './js/input';
 import './js/commentSection.js';
+import './js/bookmarks';
 import './js/switchButtons';
-import './js/oneHourTemplate';
-import './js/slick-carus.js';
-import { defaultCity } from './js/defaultCity.js';
-import { handleInput } from './js/input.js';
-import { getByGeolocation } from './js/geolocationFunc.js';
-import refs from './js/refs.js';
-import { preloader, getGeo } from './js/preloader.js';
+import { preloaderOn } from './js/preloader';
 
+function getGeo() {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+}
 
 getGeo()
   .then(location => {
-    preloader();
-    refs.mainRef.classList.remove('main-section');
     const lat = location.coords.latitude;
     const lon = location.coords.longitude;
     getByGeolocation({ lat, lon });
-    preloader();
-    handleInput();
+    preloaderOn();
   })
   .catch(error => {
-    preloader();
-    refs.mainRef.classList.remove('main-section');
+    preloaderOn();
     defaultCity();
-    handleInput();
   });

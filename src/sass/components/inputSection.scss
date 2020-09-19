@@ -6,8 +6,8 @@
     margin-bottom: 104px;
   }
   @include desktop-media {
-    padding-top: 82px;
-    margin-bottom: 14px;
+    padding-top: 79px;
+    margin-bottom: 94px;
   }
   &__form {
     position: relative;
@@ -71,7 +71,11 @@
     padding: 2px 12px;
     margin-right: 10px;
     text-decoration: underline;
+    cursor: pointer;
   }
+}
+.orange {
+  background-color: orange;
 }
 
 .bookmarkcCloseBtn {
@@ -80,4 +84,5 @@
   border: none;
   background-color: transparent;
   background-image: url(.././icon/close.svg);
+  cursor: pointer;
 }

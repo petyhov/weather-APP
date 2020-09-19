@@ -1,10 +1,12 @@
 .preload-container {
   position: absolute;
-  background-color: grey;
+  background-color: gray;
   width: 100vw;
-  height: 100vh;
-  display: flex;
+  height: 100%;
   z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .preloader {
   display: flex;

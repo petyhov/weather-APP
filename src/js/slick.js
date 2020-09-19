@@ -1,7 +1,8 @@
 import $ from 'jquery';
 import 'slick-carousel';
-import './../../node_modules/slick-carousel/slick/slick-theme.scss';
-import './../../node_modules/slick-carousel/slick/slick.scss';
+import 'slick-carousel/slick/slick.scss';
+import 'slick-carousel/slick/slick-theme.scss';
+import 'slick-carousel/slick/slick.js';
 
 export function getCarusel(element){
   $(element).slick({
@@ -10,7 +11,7 @@ export function getCarusel(element){
     slidesToShow: 5,
     slidesToScroll: 1,
     responsive: [
-      {
+            {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,

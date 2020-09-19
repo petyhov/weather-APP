@@ -1,6 +1,11 @@
 import refs from './refs';
 import { cityValidationAddBookmark } from './cityValidation';
-import {getCarusel} from './slick-carus.js';
+import { getCarusel } from './temp/slick.js';
+import forecastData from './fetchWeatherData.js';
+import allForOneDay from './allForOneDay';
+import allForFiveDay from './allForFiveDay';
+import get5dayobj from './create5dayObj';
+import { preloaderOn } from './preloader';
 
 export let bookmarks = [];
 
@@ -15,16 +20,16 @@ const downloadBookmarks = () => {
       .map(bookmark => exampleTemplate(bookmark))
       .map(item => refs.bookmarkRef.insertAdjacentHTML('beforeend', item));
   }
-  if(bookmarks.length >= 2){
-    getCarusel('.bookmarks__list');
-  }
+  // if (bookmarks.length >= 2) {
+  //   getCarusel('.bookmarks__list');
+  // }
 };
 
 export const updateBookmarks = city => {
   if (!bookmarks.includes(city)) {
     bookmarks.push(city);
     localStorage.setItem('city', JSON.stringify(bookmarks));
-    
+
     refs.bookmarkRef.insertAdjacentHTML('beforeend', exampleTemplate(city));
   }
 };
@@ -32,12 +37,13 @@ export const updateBookmarks = city => {
 refs.bookmarkBtnRef.addEventListener('click', () => {
   const searchValue = refs.inputRef.search.value;
   cityValidationAddBookmark(searchValue);
-  location.reload();
+  // location.reload();
   refs.inputRef.search.value = '';
 });
 
 document.addEventListener('DOMContentLoaded', () => {
   downloadBookmarks();
+
   refs.bookmarkRef.addEventListener('click', e => {
     if (Object.values(e.target.classList).includes('bookmarkcCloseBtn')) {
       e.target.parentElement.remove();
@@ -49,6 +55,18 @@ document.addEventListener('DOMContentLoaded', () => {
           bookmarks.splice(index, 1);
           localStorage.setItem('city', JSON.stringify(bookmarks));
         }
+      });
+    }
+    if (Object.values(e.target.classList).includes('bookmarks__item')) {
+      preloaderOn();
+      const searchValue = e.target.textContent;
+      forecastData.getForecast(searchValue).then(city => {
+        allForOneDay(city);
+      });
+      forecastData.getForecastFiveDays(searchValue).then(city => {
+        let objOf5day = get5dayobj(city);
+        allForFiveDay(objOf5day);
+        // getCaruselInput();
       });
     }
   });

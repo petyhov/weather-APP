@@ -29,4 +29,5 @@ export default {
   commentsSectionRef: document.querySelector('.comments'),
   closeMoreInfoRef: document.querySelector('.hourly-weather-close'),
   listHourRef: document.querySelector('.list__hour'),
+  mainRef: document.getElementsByTagName('main'),
 };

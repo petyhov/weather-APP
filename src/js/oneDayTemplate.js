@@ -1,14 +1,11 @@
-import getData from './fetchWeatherData';
 import refs from './refs';
 
-const weatherOneDay = searchValue => {
-  getData.getForecast(searchValue).then(data => {
-    refs.locationWeather.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-    refs.locationName.textContent = `${data.name}, ${data.sys.country}`;
-    refs.todayTemperature.textContent = Math.round(data.main.temp);
-    refs.todayMinTemperature.textContent = Math.round(data.main.temp_min);
-    refs.todayMaxTemperature.textContent = Math.round(data.main.temp_max);
-  });
+const templateWeatherOneDay = obj => {
+  refs.locationWeather.src = `https://openweathermap.org/img/wn/${obj.weather[0].icon}@2x.png`;
+  refs.locationName.textContent = `${obj.name}, ${obj.sys.country}`;
+  refs.todayTemperature.textContent = Math.round(obj.main.temp);
+  refs.todayMinTemperature.textContent = Math.round(obj.main.temp_min);
+  refs.todayMaxTemperature.textContent = Math.round(obj.main.temp_max);
 };
 
-export default weatherOneDay;
+export default templateWeatherOneDay;

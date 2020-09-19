@@ -1,15 +1,13 @@
-import refs from './refs.js';
+import refs from './refs';
 
-export function preloader() {
-    refs.preloaderRef.classList.add('preload-container');
-  
-    setTimeout(() => {
-      refs.preloaderRef.classList.remove('preload-container');
-    }, 2000);
-  }
+export const preloaderOn = () => {
+  refs.preloaderRef.classList.remove('none');
+  refs.weatherBlock.classList.add('none');
+};
 
-  export function getGeo() {
-    return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(resolve, reject);
-    });
-  }
+export const preloaderOff = () => {
+  setTimeout(() => {
+    refs.preloaderRef.classList.add('none');
+    refs.weatherBlock.classList.remove('none');
+  }, 2000);
+};

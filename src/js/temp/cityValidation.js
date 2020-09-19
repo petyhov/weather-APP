@@ -4,7 +4,7 @@ import { error } from '@pnotify/core';
 export const cityValidationAddBookmark = searchValue => {
   forecastData.getForecast(searchValue).then(data => {
     if (data['cod'] === '404' || !searchValue) {
-      error({ title: 'Oh No!', text: 'Wrong city!' })
+      error({ title: 'Oh No!', text: 'Enter city!' })
     } else {
       updateBookmarks(searchValue);
     }
