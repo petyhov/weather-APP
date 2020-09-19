@@ -55,15 +55,17 @@
     margin: 0 auto;
     list-style: none;
     display: flex;
-
+    min-width: 0;
     @include tablet-media {
       width: 506px;
+      min-width: 0;
     }
   }
   &__item {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    min-width: 0px;
     border-radius: 12px;
     background-color: $input-color;
     opacity: 0.6;
