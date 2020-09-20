@@ -10,7 +10,7 @@
     @include desktop-media {
       position: absolute;
       right: 0;
-      top: 110px;
+      top: 150px;
     }
   }
   &__table {
@@ -34,6 +34,8 @@
       border-radius: 0;
       border-top-left-radius: 35px;
       border-bottom-left-radius: 35px;
+      height: 300px;
+      padding: 0px;
     }
   }
 
@@ -63,6 +65,9 @@
     @include tablet-media {
       font-size: 90px;
       margin-bottom: 21px;
+    }
+    @include desktop-media{
+      margin-bottom: 0;
     }
   }
   &__min-max-container {
@@ -133,4 +138,11 @@
 }
 .disactive-btn {
   background-color: rgba(247, 247, 247, 0.5);
+}
+
+#locationWeather{
+ @include desktop-media{
+  width: 70px;
+  height: 70px;
+ }
 }
